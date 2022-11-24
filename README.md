@@ -1,4 +1,4 @@
-# ecc_app_school_mobile
+# ecc_school_app_mobile
 
 A new Flutter project.
 

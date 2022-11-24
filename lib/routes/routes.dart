@@ -1,6 +1,9 @@
-import 'package:ecc_app_school_mobile/main.dart';
+import 'package:ecc_school_app_mobile/views/screens/details_screen.dart';
+import 'package:ecc_school_app_mobile/views/screens/home_screen.dart';
+import 'package:ecc_school_app_mobile/views/screens/settings_screen.dart';
 import 'package:flutter/material.dart';
 import 'package:go_router/go_router.dart';
+
 part 'routes.g.dart';
 
 @TypedGoRoute<HomeRoute>(path: '/', routes: [
@@ -13,6 +16,13 @@ class HomeRoute extends GoRouteData {
   Widget build(BuildContext context) => const HomeScreen();
 }
 
+class SettingsRoute extends GoRouteData {
+  const SettingsRoute();
+
+  @override
+  Widget build(BuildContext context) => const SettingsScreen();
+}
+
 @TypedGoRoute<DetailRoute>(
   path: '/details',
 )
@@ -21,11 +31,4 @@ class DetailRoute extends GoRouteData {
 
   @override
   Widget build(BuildContext context) => const DetailsScreen();
-}
-
-class SettingsRoute extends GoRouteData {
-  const SettingsRoute();
-
-  @override
-  Widget build(BuildContext context) => const SettingsScreen();
 }
