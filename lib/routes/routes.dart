@@ -6,6 +6,10 @@ import 'package:go_router/go_router.dart';
 
 part 'routes.g.dart';
 
+final GoRouter goRouter = GoRouter(
+  routes: $appRoutes,
+);
+
 @TypedGoRoute<HomeRoute>(path: '/', routes: [
   TypedGoRoute<SettingsRoute>(path: 'settings'),
 ])
