@@ -17,7 +17,7 @@ class SigninScreen extends HookConsumerWidget {
     final isUnvisible = useState(true);
     final isLoading = useState(false);
 
-    final auth = ref.watch(authNotifierProvider);
+    final isFailure = useState(false);
 
     String? formValidator(String? value, String labelText) {
       if (value == null || value.isEmpty) {
@@ -39,7 +39,10 @@ class SigninScreen extends HookConsumerWidget {
           passwordController.clear();
           isLoading.value = false;
           const routes.HomeRoute().go(context);
-        } catch (e) {}
+        } catch (e) {
+          debugPrint(e.toString());
+          isFailure.value = true;
+        }
       }
     }
 
@@ -84,6 +87,11 @@ class SigninScreen extends HookConsumerWidget {
                       ),
                     ),
                   ),
+                  if (isFailure.value)
+                    const Text(
+                      'Student number or Password is incorrect',
+                      style: TextStyle(color: Colors.red),
+                    ),
                   ElevatedButton(
                     onPressed: onSubmitHandler,
                     child: const Text("submit"),
@@ -91,8 +99,6 @@ class SigninScreen extends HookConsumerWidget {
                 ],
               ),
             ),
-            Text('UUID: ${auth.uuid}'),
-            Text('Token: ${auth.token}'),
           ],
         ),
       ),
