@@ -17,8 +17,8 @@ class HomeScreen extends StatelessWidget {
               child: const Text('Go to the Settings screen'),
             ),
             ElevatedButton(
-              onPressed: () => const routes.DetailRoute().go(context),
-              child: const Text('Go to the Details screen'),
+              onPressed: () => const routes.SigninRoute().go(context),
+              child: const Text('Go to the Signin screen'),
             ),
           ],
         ),

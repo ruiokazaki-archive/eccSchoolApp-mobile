@@ -1,6 +1,6 @@
-import 'package:ecc_school_app_mobile/views/screens/details_screen.dart';
 import 'package:ecc_school_app_mobile/views/screens/home_screen.dart';
 import 'package:ecc_school_app_mobile/views/screens/settings_screen.dart';
+import 'package:ecc_school_app_mobile/views/screens/signin_screen.dart';
 import 'package:flutter/material.dart';
 import 'package:go_router/go_router.dart';
 
@@ -27,12 +27,12 @@ class SettingsRoute extends GoRouteData {
   Widget build(BuildContext context) => const SettingsScreen();
 }
 
-@TypedGoRoute<DetailRoute>(
-  path: '/details',
+@TypedGoRoute<SigninRoute>(
+  path: '/signin',
 )
-class DetailRoute extends GoRouteData {
-  const DetailRoute();
+class SigninRoute extends GoRouteData {
+  const SigninRoute();
 
   @override
-  Widget build(BuildContext context) => const DetailsScreen();
+  Widget build(BuildContext context) => const SigninScreen();
 }
