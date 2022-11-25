@@ -3,7 +3,7 @@
 // ignore_for_file: type=lint
 // ignore_for_file: unused_element, deprecated_member_use, deprecated_member_use_from_same_package, use_function_type_syntax_for_parameters, unnecessary_const, avoid_init_to_null, invalid_override_different_default_values_named, prefer_expression_function_bodies, annotate_overrides, invalid_annotation_target
 
-part of 'user_model.dart';
+part of 'user_auth_model.dart';
 
 // **************************************************************************
 // FreezedGenerator
@@ -14,32 +14,33 @@ T _$identity<T>(T value) => value;
 final _privateConstructorUsedError = UnsupportedError(
     'It seems like you constructed your class using `MyClass._()`. This constructor is only meant to be used by freezed and you are not supposed to need it nor use it.\nPlease check the documentation here for more information: https://github.com/rrousselGit/freezed#custom-getters-and-methods');
 
-User _$UserFromJson(Map<String, dynamic> json) {
-  return _User.fromJson(json);
+UserAuth _$UserAuthFromJson(Map<String, dynamic> json) {
+  return _UserAuth.fromJson(json);
 }
 
 /// @nodoc
-mixin _$User {
+mixin _$UserAuth {
   String? get uuid => throw _privateConstructorUsedError;
   String? get token => throw _privateConstructorUsedError;
 
   Map<String, dynamic> toJson() => throw _privateConstructorUsedError;
   @JsonKey(ignore: true)
-  $UserCopyWith<User> get copyWith => throw _privateConstructorUsedError;
+  $UserAuthCopyWith<UserAuth> get copyWith =>
+      throw _privateConstructorUsedError;
 }
 
 /// @nodoc
-abstract class $UserCopyWith<$Res> {
-  factory $UserCopyWith(User value, $Res Function(User) then) =
-      _$UserCopyWithImpl<$Res, User>;
+abstract class $UserAuthCopyWith<$Res> {
+  factory $UserAuthCopyWith(UserAuth value, $Res Function(UserAuth) then) =
+      _$UserAuthCopyWithImpl<$Res, UserAuth>;
   @useResult
   $Res call({String? uuid, String? token});
 }
 
 /// @nodoc
-class _$UserCopyWithImpl<$Res, $Val extends User>
-    implements $UserCopyWith<$Res> {
-  _$UserCopyWithImpl(this._value, this._then);
+class _$UserAuthCopyWithImpl<$Res, $Val extends UserAuth>
+    implements $UserAuthCopyWith<$Res> {
+  _$UserAuthCopyWithImpl(this._value, this._then);
 
   // ignore: unused_field
   final $Val _value;
@@ -66,18 +67,21 @@ class _$UserCopyWithImpl<$Res, $Val extends User>
 }
 
 /// @nodoc
-abstract class _$$_UserCopyWith<$Res> implements $UserCopyWith<$Res> {
-  factory _$$_UserCopyWith(_$_User value, $Res Function(_$_User) then) =
-      __$$_UserCopyWithImpl<$Res>;
+abstract class _$$_UserAuthCopyWith<$Res> implements $UserAuthCopyWith<$Res> {
+  factory _$$_UserAuthCopyWith(
+          _$_UserAuth value, $Res Function(_$_UserAuth) then) =
+      __$$_UserAuthCopyWithImpl<$Res>;
   @override
   @useResult
   $Res call({String? uuid, String? token});
 }
 
 /// @nodoc
-class __$$_UserCopyWithImpl<$Res> extends _$UserCopyWithImpl<$Res, _$_User>
-    implements _$$_UserCopyWith<$Res> {
-  __$$_UserCopyWithImpl(_$_User _value, $Res Function(_$_User) _then)
+class __$$_UserAuthCopyWithImpl<$Res>
+    extends _$UserAuthCopyWithImpl<$Res, _$_UserAuth>
+    implements _$$_UserAuthCopyWith<$Res> {
+  __$$_UserAuthCopyWithImpl(
+      _$_UserAuth _value, $Res Function(_$_UserAuth) _then)
       : super(_value, _then);
 
   @pragma('vm:prefer-inline')
@@ -86,7 +90,7 @@ class __$$_UserCopyWithImpl<$Res> extends _$UserCopyWithImpl<$Res, _$_User>
     Object? uuid = freezed,
     Object? token = freezed,
   }) {
-    return _then(_$_User(
+    return _then(_$_UserAuth(
       uuid: freezed == uuid
           ? _value.uuid
           : uuid // ignore: cast_nullable_to_non_nullable
@@ -101,10 +105,11 @@ class __$$_UserCopyWithImpl<$Res> extends _$UserCopyWithImpl<$Res, _$_User>
 
 /// @nodoc
 @JsonSerializable()
-class _$_User implements _User {
-  _$_User({this.uuid, this.token});
+class _$_UserAuth implements _UserAuth {
+  _$_UserAuth({this.uuid, this.token});
 
-  factory _$_User.fromJson(Map<String, dynamic> json) => _$$_UserFromJson(json);
+  factory _$_UserAuth.fromJson(Map<String, dynamic> json) =>
+      _$$_UserAuthFromJson(json);
 
   @override
   final String? uuid;
@@ -113,14 +118,14 @@ class _$_User implements _User {
 
   @override
   String toString() {
-    return 'User(uuid: $uuid, token: $token)';
+    return 'UserAuth(uuid: $uuid, token: $token)';
   }
 
   @override
   bool operator ==(dynamic other) {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
-            other is _$_User &&
+            other is _$_UserAuth &&
             (identical(other.uuid, uuid) || other.uuid == uuid) &&
             (identical(other.token, token) || other.token == token));
   }
@@ -132,21 +137,21 @@ class _$_User implements _User {
   @JsonKey(ignore: true)
   @override
   @pragma('vm:prefer-inline')
-  _$$_UserCopyWith<_$_User> get copyWith =>
-      __$$_UserCopyWithImpl<_$_User>(this, _$identity);
+  _$$_UserAuthCopyWith<_$_UserAuth> get copyWith =>
+      __$$_UserAuthCopyWithImpl<_$_UserAuth>(this, _$identity);
 
   @override
   Map<String, dynamic> toJson() {
-    return _$$_UserToJson(
+    return _$$_UserAuthToJson(
       this,
     );
   }
 }
 
-abstract class _User implements User {
-  factory _User({final String? uuid, final String? token}) = _$_User;
+abstract class _UserAuth implements UserAuth {
+  factory _UserAuth({final String? uuid, final String? token}) = _$_UserAuth;
 
-  factory _User.fromJson(Map<String, dynamic> json) = _$_User.fromJson;
+  factory _UserAuth.fromJson(Map<String, dynamic> json) = _$_UserAuth.fromJson;
 
   @override
   String? get uuid;
@@ -154,5 +159,6 @@ abstract class _User implements User {
   String? get token;
   @override
   @JsonKey(ignore: true)
-  _$$_UserCopyWith<_$_User> get copyWith => throw _privateConstructorUsedError;
+  _$$_UserAuthCopyWith<_$_UserAuth> get copyWith =>
+      throw _privateConstructorUsedError;
 }
