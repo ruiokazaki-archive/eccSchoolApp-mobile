@@ -5,7 +5,7 @@ import 'package:flutter_dotenv/flutter_dotenv.dart';
 
 @immutable
 class ApiEndpoint {
-  final String baseUrl =
+  static final String baseUrl =
       dotenv.get('API_ENDPOINT', fallback: 'http://localhost:8080');
 
   // NOTE: 認証周りのエンドポイントが増える可能性があるため分けている
