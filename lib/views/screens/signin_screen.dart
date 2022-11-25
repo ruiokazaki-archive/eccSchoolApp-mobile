@@ -1,4 +1,4 @@
-import 'package:ecc_school_app_mobile/providers/signin_provider.dart';
+import 'package:ecc_school_app_mobile/providers/auth_provider.dart';
 import 'package:flutter/material.dart';
 import 'package:hooks_riverpod/hooks_riverpod.dart';
 
@@ -7,14 +7,27 @@ class SigninScreen extends ConsumerWidget {
 
   @override
   Widget build(BuildContext context, WidgetRef ref) {
-    final asyncValue = ref.watch(signinProvider);
+    final auth = ref.watch(authNotifierProvider);
     return Scaffold(
-      appBar: AppBar(title: const Text('Signin Screen')),
+      appBar: AppBar(
+        title: const Text('Signin'),
+      ),
       body: Center(
-        child: asyncValue.when(
-          loading: () => const CircularProgressIndicator(),
-          error: (e, _) => Text(e.toString()),
-          data: (data) => Text(data.toString()),
+        child: Column(
+          mainAxisAlignment: MainAxisAlignment.center,
+          children: [
+            Text('User ID: ${auth.uuid}'),
+            Text('Token: ${auth.token}'),
+            ElevatedButton(
+              onPressed: () {
+                ref.read(authNotifierProvider.notifier).signin(
+                      userId: '',
+                      password: '',
+                    );
+              },
+              child: const Text('Signin'),
+            ),
+          ],
         ),
       ),
     );
