@@ -1,8 +1,9 @@
+import 'package:ecc_school_app_mobile/models/user/user_auth_model.dart';
 import 'package:ecc_school_app_mobile/services/networking/api_service.dart';
 
 class AuthRepository {
   final _api = ApiService();
-  dynamic signin({
+  Future<UserAuth> signin({
     required String userId,
     required String password,
   }) async {
