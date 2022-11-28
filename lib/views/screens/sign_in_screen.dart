@@ -38,6 +38,7 @@ class SignInScreen extends HookConsumerWidget {
           userIdController.clear();
           passwordController.clear();
           isLoading.value = false;
+          // ignore: use_build_context_synchronously
           const routes.HomeRoute().go(context);
         } catch (e) {
           debugPrint(e.toString());

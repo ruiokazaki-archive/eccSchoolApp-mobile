@@ -10,14 +10,16 @@ class AuthNotifier extends StateNotifier<UserAuth> {
 
   final authRepository = AuthRepository();
 
-  Future<void> signIn({
+  Future<UserAuth> signIn({
     required String userId,
     required String password,
   }) async {
-    state = await authRepository.signIn(
+    final userAuth = await authRepository.signIn(
       userId: userId,
       password: password,
     );
+    state = userAuth;
+    return userAuth;
   }
 
   void signOut() {
@@ -25,9 +27,11 @@ class AuthNotifier extends StateNotifier<UserAuth> {
     state = UserAuth();
   }
 
-  UserAuth? getUserAuth() {
-    return authRepository.getUserAuth();
+  UserAuth getLocalUserAuth() {
+    final userAuth = authRepository.getLocalUserAuth();
+    state = userAuth;
+    return userAuth;
   }
 
-  bool get isSignedIn => state.token?.isNotEmpty ?? false;
+  bool get isSignedIn => !state.isNull;
 }

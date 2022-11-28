@@ -23,7 +23,7 @@ class AuthRepository {
     _localStorage.clearUserAuth();
   }
 
-  UserAuth? getUserAuth() {
+  UserAuth getLocalUserAuth() {
     return _localStorage.getUserAuth();
   }
 }

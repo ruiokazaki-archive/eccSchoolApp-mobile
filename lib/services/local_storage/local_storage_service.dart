@@ -13,9 +13,9 @@ class LocalStorageService {
     _sharedPrefs = await SharedPreferences.getInstance();
   }
 
-  UserAuth? getUserAuth() {
+  UserAuth getUserAuth() {
     final user = _sharedPrefs?.getString(_userAuthKey);
-    if (user == null) return null;
+    if (user == null) return UserAuth();
     return UserAuth.fromJson(jsonDecode(user) as JSON);
   }
 
