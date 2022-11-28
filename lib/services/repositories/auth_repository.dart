@@ -1,9 +1,12 @@
 import 'package:ecc_school_app_mobile/models/user/user_auth_model.dart';
+import 'package:ecc_school_app_mobile/services/local_storage/local_storage_service.dart';
 import 'package:ecc_school_app_mobile/services/networking/api_service.dart';
 
 class AuthRepository {
   final _api = ApiService();
-  Future<UserAuth> signin({
+  final _localStorage = LocalStorageService();
+
+  Future<UserAuth> signIn({
     required String userId,
     required String password,
   }) async {
@@ -11,6 +14,16 @@ class AuthRepository {
       'id': userId,
       'pw': password,
     };
-    return _api.signin(payload);
+    final userAuth = await _api.signIn(payload);
+    _localStorage.setUserAuth(userAuth);
+    return userAuth;
+  }
+
+  void signOut() {
+    _localStorage.clearUserAuth();
+  }
+
+  UserAuth? getUserAuth() {
+    return _localStorage.getUserAuth();
   }
 }

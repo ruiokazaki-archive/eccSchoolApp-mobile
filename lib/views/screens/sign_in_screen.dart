@@ -5,8 +5,8 @@ import 'package:flutter/services.dart';
 import 'package:flutter_hooks/flutter_hooks.dart';
 import 'package:hooks_riverpod/hooks_riverpod.dart';
 
-class SigninScreen extends HookConsumerWidget {
-  const SigninScreen({super.key});
+class SignInScreen extends HookConsumerWidget {
+  const SignInScreen({super.key});
 
   @override
   Widget build(BuildContext context, WidgetRef ref) {
@@ -14,7 +14,7 @@ class SigninScreen extends HookConsumerWidget {
     final userIdController = useTextEditingController(text: '');
     final passwordController = useTextEditingController(text: '');
 
-    final isUnvisible = useState(true);
+    final isUnVisible = useState(true);
     final isLoading = useState(false);
 
     final isFailure = useState(false);
@@ -31,7 +31,7 @@ class SigninScreen extends HookConsumerWidget {
 
       if (formKey.currentState!.validate()) {
         try {
-          await ref.read(authNotifierProvider.notifier).signin(
+          await ref.read(authNotifierProvider.notifier).signIn(
                 userId: userIdController.text,
                 password: passwordController.text,
               );
@@ -73,16 +73,16 @@ class SigninScreen extends HookConsumerWidget {
                     keyboardType: TextInputType.number,
                     inputFormatters: [FilteringTextInputFormatter.digitsOnly],
                     onFieldSubmitted: (_) => onSubmitHandler(),
-                    obscureText: isUnvisible.value,
+                    obscureText: isUnVisible.value,
                     decoration: InputDecoration(
                       labelText: 'Password',
                       hintText: 'Your password',
                       suffixIcon: IconButton(
-                        icon: Icon(isUnvisible.value
+                        icon: Icon(isUnVisible.value
                             ? Icons.visibility
                             : Icons.visibility_off),
                         onPressed: () {
-                          isUnvisible.value = !isUnvisible.value;
+                          isUnVisible.value = !isUnVisible.value;
                         },
                       ),
                     ),
