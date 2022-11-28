@@ -6,10 +6,14 @@ part 'user_auth_model.g.dart';
 
 @freezed
 class UserAuth with _$UserAuth {
+  UserAuth._();
+
   factory UserAuth({
     String? uuid,
     String? token,
   }) = _UserAuth;
 
   factory UserAuth.fromJson(JSON json) => _$UserAuthFromJson(json);
+
+  bool get isNull => UserAuth() == this;
 }

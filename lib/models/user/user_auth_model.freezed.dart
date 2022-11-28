@@ -105,8 +105,8 @@ class __$$_UserAuthCopyWithImpl<$Res>
 
 /// @nodoc
 @JsonSerializable()
-class _$_UserAuth implements _UserAuth {
-  _$_UserAuth({this.uuid, this.token});
+class _$_UserAuth extends _UserAuth {
+  _$_UserAuth({this.uuid, this.token}) : super._();
 
   factory _$_UserAuth.fromJson(Map<String, dynamic> json) =>
       _$$_UserAuthFromJson(json);
@@ -148,8 +148,9 @@ class _$_UserAuth implements _UserAuth {
   }
 }
 
-abstract class _UserAuth implements UserAuth {
+abstract class _UserAuth extends UserAuth {
   factory _UserAuth({final String? uuid, final String? token}) = _$_UserAuth;
+  _UserAuth._() : super._();
 
   factory _UserAuth.fromJson(Map<String, dynamic> json) = _$_UserAuth.fromJson;
 
