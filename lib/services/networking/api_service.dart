@@ -6,7 +6,7 @@ import 'package:ecc_school_app_mobile/services/networking/dio_service.dart';
 class ApiService {
   final _dioService = DioService();
 
-  Future<UserAuth> signin(JSON payload) async {
+  Future<UserAuth> signIn(JSON payload) async {
     final response = await _dioService.post(
       endpoint: ApiEndpoint.auth(AuthEndpoint.SIGNIN),
       data: payload,
