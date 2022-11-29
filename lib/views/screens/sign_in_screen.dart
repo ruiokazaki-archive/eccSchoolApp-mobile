@@ -26,12 +26,12 @@ class SignInScreen extends HookConsumerWidget {
       return null;
     }
 
-    void onSubmitHandler() async {
+    void onSubmitHandler() {
       isLoading.value = true;
 
       if (formKey.currentState!.validate()) {
         try {
-          await ref.read(authNotifierProvider.notifier).signIn(
+          ref.read(authNotifierProvider.notifier).signIn(
                 userId: userIdController.text,
                 password: passwordController.text,
               );

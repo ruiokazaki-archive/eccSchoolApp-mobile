@@ -10,7 +10,7 @@ class AuthNotifier extends StateNotifier<UserAuth> {
 
   final authRepository = AuthRepository();
 
-  Future<UserAuth> signIn({
+  void signIn({
     required String userId,
     required String password,
   }) async {
@@ -19,7 +19,6 @@ class AuthNotifier extends StateNotifier<UserAuth> {
       password: password,
     );
     state = userAuth;
-    return userAuth;
   }
 
   void signOut() {
@@ -27,10 +26,9 @@ class AuthNotifier extends StateNotifier<UserAuth> {
     state = UserAuth();
   }
 
-  UserAuth getLocalUserAuth() {
+  void getLocalUserAuth() async {
     final userAuth = authRepository.getLocalUserAuth();
-    state = userAuth;
-    return userAuth;
+    state = await userAuth;
   }
 
   bool get isSignedIn => !state.isNull;

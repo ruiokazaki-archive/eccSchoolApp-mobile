@@ -23,7 +23,5 @@ class AuthRepository {
     _localStorage.clearUserAuth();
   }
 
-  UserAuth getLocalUserAuth() {
-    return _localStorage.getUserAuth();
-  }
+  Future<UserAuth> getLocalUserAuth() => _localStorage.getUserAuth();
 }

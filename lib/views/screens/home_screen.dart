@@ -1,3 +1,4 @@
+import 'package:ecc_school_app_mobile/providers/auth_provider.dart';
 import 'package:ecc_school_app_mobile/routes/routes.dart' as routes;
 import 'package:flutter/material.dart';
 import 'package:hooks_riverpod/hooks_riverpod.dart';
@@ -7,6 +8,9 @@ class HomeScreen extends ConsumerWidget {
 
   @override
   Widget build(BuildContext context, WidgetRef ref) {
+    final userAuth = ref.watch(authNotifierProvider);
+    final authNotifier = ref.watch(authNotifierProvider.notifier);
+
     return Scaffold(
       appBar: AppBar(title: const Text('Home Screen')),
       body: Center(
@@ -20,6 +24,13 @@ class HomeScreen extends ConsumerWidget {
             ElevatedButton(
               onPressed: () => const routes.SignInRoute().go(context),
               child: const Text('Go to the SignIn screen'),
+            ),
+            Text("userAuth: $userAuth"),
+            TextButton(
+              onPressed: () {
+                authNotifier.getLocalUserAuth();
+              },
+              child: const Text('Get Local User Auth'),
             ),
           ],
         ),
