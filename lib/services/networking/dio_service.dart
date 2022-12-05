@@ -17,13 +17,49 @@ class DioService {
     Options? options,
     required T Function(JSON responseBody) converter,
   }) async {
-      final response = await _dio.post<JSON>(
-        endpoint,
-        data: data,
-        options: options,
-      );
-      return converter(response.data as JSON);
-    }
+    final response = await _dio.post<JSON>(
+      endpoint,
+      data: data,
+      options: options,
+    );
+    return converter(response.data as JSON);
   }
+
+  Future<T> getDocument<T>({
+    required String endpoint,
+    required String token,
+    required T Function(JSON responseBody) converter,
+  }) async {
+    final response = await _dio.get<JSON>(
+      endpoint,
+      options: Options(
+        headers: {
+          "Content-Type": "application/json",
+          "Authorization": "Bearer $token",
+        },
+      ),
+    );
+
+    return converter(response.data as JSON);
+  }
+
+  Future<List<T>> getCollection<T>({
+    required String endpoint,
+    required String token,
+    required T Function(JSON responseBody) converter,
+  }) async {
+    final response = await _dio.get<JSON>(
+      endpoint,
+      options: Options(
+        headers: {
+          "Content-Type": "application/json",
+          "Authorization": "Bearer $token",
+        },
+      ),
+    );
+
+    final body = response.data as List<Object?>;
+
+    return body.map((dataMap) => converter(dataMap as JSON)).toList();
   }
 }
