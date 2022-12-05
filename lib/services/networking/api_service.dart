@@ -7,10 +7,12 @@ class ApiService {
   final _dioService = DioService();
 
   Future<UserAuth> signIn(JSON payload) async {
-    final response = await _dioService.post(
+    final userAuth = await _dioService.post<UserAuth>(
       endpoint: ApiEndpoint.auth(AuthEndpoint.SIGNIN),
       data: payload,
+      converter: (responseBody) => UserAuth.fromJson(responseBody),
     );
-    return UserAuth.fromJson(response);
+    return userAuth;
+  }
   }
 }
