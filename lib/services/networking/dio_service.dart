@@ -11,20 +11,19 @@ final options = BaseOptions(
 class DioService {
   final _dio = Dio(options);
 
-  Future<JSON> post({
+  Future<T> post<T>({
     required String endpoint,
     JSON? data,
     Options? options,
+    required T Function(JSON responseBody) converter,
   }) async {
-    try {
       final response = await _dio.post<JSON>(
         endpoint,
         data: data,
         options: options,
       );
-      return response.data as JSON;
-    } catch (e) {
-      throw Exception(e);
+      return converter(response.data as JSON);
     }
+  }
   }
 }
