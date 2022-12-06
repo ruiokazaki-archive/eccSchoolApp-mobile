@@ -1,34 +1,74 @@
+import 'package:dio/dio.dart';
 import 'package:ecc_school_app_mobile/helpers/typedefs.dart';
-import 'package:ecc_school_app_mobile/models/attendance/attendance_model.dart';
-import 'package:ecc_school_app_mobile/models/user/user_auth_model.dart';
-import 'package:ecc_school_app_mobile/services/networking/api_endpoint.dart';
 import 'package:ecc_school_app_mobile/services/networking/dio_service.dart';
 
 class ApiService {
   final _dioService = DioService();
 
-  Future<UserAuth> signIn(JSON payload) async {
-    final userAuth = await _dioService.post<UserAuth>(
-      endpoint: ApiEndpoint.auth(AuthEndpoint.SIGNIN),
-      data: payload,
-      converter: (responseBody) => UserAuth.fromJson(responseBody),
+  Future<T> postDocument<T>({
+    required String endpoint,
+    required T Function(JSON responseBody) converter,
+    JSON? data,
+    Options? options,
+  }) async {
+    final response = await _dioService.post(
+      endpoint: endpoint,
+      data: data,
+      options: options,
     );
-    return userAuth;
+    return converter(response);
   }
 
-  Future<List<Attendance>> attendance(UserAuth userAuth) async {
-    if (userAuth.isNull) {
-      throw Exception('User is not signed in');
-    }
-
-    final attendances = await _dioService.getCollection<Attendance>(
-      endpoint: ApiEndpoint.user(
-        UserEndpoint.ATTENDANCE,
-        uuid: userAuth.uuid!,
-      ),
-      token: userAuth.token!,
-      converter: (responseBody) => Attendance.fromJson(responseBody),
+  Future<List<T>> postCollection<T>({
+    required String endpoint,
+    required T Function(JSON responseBody) converter,
+    JSON? data,
+    Options? options,
+  }) async {
+    final response = await _dioService.post(
+      endpoint: endpoint,
+      options: options,
     );
-    return attendances;
+
+    final body = response as List<Object?>;
+    return body.map((dataMap) => converter(dataMap as JSON)).toList();
+  }
+
+  Future<T> getDocument<T>({
+    required String endpoint,
+    required String token,
+    required T Function(JSON responseBody) converter,
+  }) async {
+    final response = await _dioService.get(
+      endpoint: endpoint,
+      options: Options(
+        headers: {
+          "Content-Type": "application/json",
+          "Authorization": "Bearer $token",
+        },
+      ),
+    );
+
+    return converter(response);
+  }
+
+  Future<List<T>> getCollection<T>({
+    required String endpoint,
+    required String token,
+    required T Function(JSON responseBody) converter,
+  }) async {
+    final response = await _dioService.get(
+      endpoint: endpoint,
+      options: Options(
+        headers: {
+          "Content-Type": "application/json",
+          "Authorization": "Bearer $token",
+        },
+      ),
+    );
+
+    final body = response as List<Object?>;
+
+    return body.map((dataMap) => converter(dataMap as JSON)).toList();
   }
 }
