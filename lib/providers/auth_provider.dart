@@ -3,10 +3,10 @@ import 'package:ecc_school_app_mobile/services/repositories/auth_repository.dart
 import 'package:hooks_riverpod/hooks_riverpod.dart';
 
 final authNotifierProvider =
-    StateNotifierProvider<AuthNotifier, UserAuth>((ref) => AuthNotifier());
+    StateNotifierProvider<AuthNotifier, UserAuth?>((ref) => AuthNotifier());
 
-class AuthNotifier extends StateNotifier<UserAuth> {
-  AuthNotifier() : super(UserAuth());
+class AuthNotifier extends StateNotifier<UserAuth?> {
+  AuthNotifier() : super(null);
 
   final authRepository = AuthRepository();
 
@@ -23,7 +23,7 @@ class AuthNotifier extends StateNotifier<UserAuth> {
 
   void signOut() {
     authRepository.signOut();
-    state = UserAuth();
+    state = null;
   }
 
   void getLocalUserAuth() async {
@@ -31,5 +31,5 @@ class AuthNotifier extends StateNotifier<UserAuth> {
     state = await userAuth;
   }
 
-  bool get isSignedIn => !state.isNull;
+  bool get isSignedIn => state != null;
 }

@@ -7,8 +7,8 @@ part of 'user_auth_model.dart';
 // **************************************************************************
 
 _$_UserAuth _$$_UserAuthFromJson(Map<String, dynamic> json) => _$_UserAuth(
-      uuid: json['uuid'] as String?,
-      token: json['token'] as String?,
+      uuid: json['uuid'] as String,
+      token: json['token'] as String,
     );
 
 Map<String, dynamic> _$$_UserAuthToJson(_$_UserAuth instance) =>
