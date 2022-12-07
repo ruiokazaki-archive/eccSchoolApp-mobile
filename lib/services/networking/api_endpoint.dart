@@ -26,28 +26,28 @@ class ApiEndpoint {
     switch (endpoint) {
       case UserEndpoint.NEWS:
         {
-          return "$uuid/news";
+          return "/$uuid/news";
         }
       case UserEndpoint.NEWS_DETAIL:
         {
           assert(query != null, 'newsId is required for NEWS_DETAIL endpoint');
-          return "$uuid/news/$query";
+          return "/$uuid/news/$query";
         }
       case UserEndpoint.ATTENDANCE:
         {
-          return "$uuid/attendance";
+          return "/$uuid/attendance";
         }
       case UserEndpoint.TIMETABLE:
         {
           assert(
               query != null, 'dayOfWeekId is required for TIMETABLE endpoint');
-          return "$uuid/timetable/$query";
+          return "/$uuid/timetable/$query";
         }
       case UserEndpoint.CALENDAR:
         {
           assert(query != null, 'year is required for CALENDAR endpoint');
           assert(subQuery != null, 'month is required for CALENDAR endpoint');
-          return "$uuid/calendar/$query/$subQuery";
+          return "/$uuid/calendar/$query/$subQuery";
         }
     }
   }
