@@ -84,9 +84,9 @@ class NetworkException with _$NetworkException {
                 message: 'No internet connectivity',
               );
             }
-            final name = error.response?.data['headers']['error'] as String;
-            final message =
-                error.response?.data['headers']['message'] as String;
+
+            final name = error.response?.data['headers']['error'];
+            final message = error.response?.data['headers']['message'];
             switch (name) {
               case ExceptionConstants.TokenExpiredException:
                 return NetworkException.TokenExpiredException(
