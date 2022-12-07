@@ -12,35 +12,36 @@ final options = BaseOptions(
 class DioService {
   final _dio = Dio(options);
 
-  Future<JSON> get({
+  Future<dynamic> get({
     required String endpoint,
     JSON? queryParams,
     Options? options,
   }) async {
     try {
-      final response = await _dio.get<JSON>(
+      final response = await _dio.get(
         endpoint,
         queryParameters: queryParams,
         options: options,
       );
-      return response.data as JSON;
+
+      return response.data;
     } on Exception catch (ex) {
       throw NetworkException.getDioException(ex);
     }
   }
 
-  Future<JSON> post({
+  Future<dynamic> post({
     required String endpoint,
     JSON? data,
     Options? options,
   }) async {
     try {
-      final response = await _dio.post<JSON>(
+      final response = await _dio.post(
         endpoint,
         data: data,
         options: options,
       );
-      return response.data as JSON;
+      return response.data;
     } on Exception catch (ex) {
       throw NetworkException.getDioException(ex);
     }

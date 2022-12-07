@@ -25,13 +25,12 @@ class ApiService {
     JSON? data,
     Options? options,
   }) async {
-    final response = await _dioService.post(
+    final List<dynamic> response = await _dioService.post(
       endpoint: endpoint,
       options: options,
     );
 
-    final body = response as List<Object?>;
-    return body.map((dataMap) => converter(dataMap as JSON)).toList();
+    return response.map((dataMap) => converter(dataMap)).toList();
   }
 
   Future<T> getDocument<T>({
@@ -57,7 +56,7 @@ class ApiService {
     required String token,
     required T Function(JSON responseBody) converter,
   }) async {
-    final response = await _dioService.get(
+    final List<dynamic> response = await _dioService.get(
       endpoint: endpoint,
       options: Options(
         headers: {
@@ -67,8 +66,6 @@ class ApiService {
       ),
     );
 
-    final body = response as List<Object?>;
-
-    return body.map((dataMap) => converter(dataMap as JSON)).toList();
+    return response.map((dataMap) => converter(dataMap)).toList();
   }
 }
