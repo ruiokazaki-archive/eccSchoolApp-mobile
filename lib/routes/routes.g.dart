@@ -16,8 +16,8 @@ GoRoute get $homeRoute => GoRouteData.$route(
       factory: $HomeRouteExtension._fromState,
       routes: [
         GoRouteData.$route(
-          path: 'settings',
-          factory: $SettingsRouteExtension._fromState,
+          path: 'attendance',
+          factory: $AttendanceRouteExtension._fromState,
         ),
       ],
     );
@@ -34,11 +34,12 @@ extension $HomeRouteExtension on HomeRoute {
   void push(BuildContext context) => context.push(location, extra: this);
 }
 
-extension $SettingsRouteExtension on SettingsRoute {
-  static SettingsRoute _fromState(GoRouterState state) => const SettingsRoute();
+extension $AttendanceRouteExtension on AttendanceRoute {
+  static AttendanceRoute _fromState(GoRouterState state) =>
+      const AttendanceRoute();
 
   String get location => GoRouteData.$location(
-        '/settings',
+        '/attendance',
       );
 
   void go(BuildContext context) => context.go(location, extra: this);

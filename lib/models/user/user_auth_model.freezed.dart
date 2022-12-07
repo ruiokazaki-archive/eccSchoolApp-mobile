@@ -20,8 +20,8 @@ UserAuth _$UserAuthFromJson(Map<String, dynamic> json) {
 
 /// @nodoc
 mixin _$UserAuth {
-  String? get uuid => throw _privateConstructorUsedError;
-  String? get token => throw _privateConstructorUsedError;
+  String get uuid => throw _privateConstructorUsedError;
+  String get token => throw _privateConstructorUsedError;
 
   Map<String, dynamic> toJson() => throw _privateConstructorUsedError;
   @JsonKey(ignore: true)
@@ -34,7 +34,7 @@ abstract class $UserAuthCopyWith<$Res> {
   factory $UserAuthCopyWith(UserAuth value, $Res Function(UserAuth) then) =
       _$UserAuthCopyWithImpl<$Res, UserAuth>;
   @useResult
-  $Res call({String? uuid, String? token});
+  $Res call({String uuid, String token});
 }
 
 /// @nodoc
@@ -50,18 +50,18 @@ class _$UserAuthCopyWithImpl<$Res, $Val extends UserAuth>
   @pragma('vm:prefer-inline')
   @override
   $Res call({
-    Object? uuid = freezed,
-    Object? token = freezed,
+    Object? uuid = null,
+    Object? token = null,
   }) {
     return _then(_value.copyWith(
-      uuid: freezed == uuid
+      uuid: null == uuid
           ? _value.uuid
           : uuid // ignore: cast_nullable_to_non_nullable
-              as String?,
-      token: freezed == token
+              as String,
+      token: null == token
           ? _value.token
           : token // ignore: cast_nullable_to_non_nullable
-              as String?,
+              as String,
     ) as $Val);
   }
 }
@@ -73,7 +73,7 @@ abstract class _$$_UserAuthCopyWith<$Res> implements $UserAuthCopyWith<$Res> {
       __$$_UserAuthCopyWithImpl<$Res>;
   @override
   @useResult
-  $Res call({String? uuid, String? token});
+  $Res call({String uuid, String token});
 }
 
 /// @nodoc
@@ -87,18 +87,18 @@ class __$$_UserAuthCopyWithImpl<$Res>
   @pragma('vm:prefer-inline')
   @override
   $Res call({
-    Object? uuid = freezed,
-    Object? token = freezed,
+    Object? uuid = null,
+    Object? token = null,
   }) {
     return _then(_$_UserAuth(
-      uuid: freezed == uuid
+      uuid: null == uuid
           ? _value.uuid
           : uuid // ignore: cast_nullable_to_non_nullable
-              as String?,
-      token: freezed == token
+              as String,
+      token: null == token
           ? _value.token
           : token // ignore: cast_nullable_to_non_nullable
-              as String?,
+              as String,
     ));
   }
 }
@@ -106,15 +106,15 @@ class __$$_UserAuthCopyWithImpl<$Res>
 /// @nodoc
 @JsonSerializable()
 class _$_UserAuth extends _UserAuth {
-  _$_UserAuth({this.uuid, this.token}) : super._();
+  _$_UserAuth({required this.uuid, required this.token}) : super._();
 
   factory _$_UserAuth.fromJson(Map<String, dynamic> json) =>
       _$$_UserAuthFromJson(json);
 
   @override
-  final String? uuid;
+  final String uuid;
   @override
-  final String? token;
+  final String token;
 
   @override
   String toString() {
@@ -149,15 +149,16 @@ class _$_UserAuth extends _UserAuth {
 }
 
 abstract class _UserAuth extends UserAuth {
-  factory _UserAuth({final String? uuid, final String? token}) = _$_UserAuth;
+  factory _UserAuth({required final String uuid, required final String token}) =
+      _$_UserAuth;
   _UserAuth._() : super._();
 
   factory _UserAuth.fromJson(Map<String, dynamic> json) = _$_UserAuth.fromJson;
 
   @override
-  String? get uuid;
+  String get uuid;
   @override
-  String? get token;
+  String get token;
   @override
   @JsonKey(ignore: true)
   _$$_UserAuthCopyWith<_$_UserAuth> get copyWith =>

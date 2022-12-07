@@ -18,8 +18,8 @@ class HomeScreen extends ConsumerWidget {
           mainAxisAlignment: MainAxisAlignment.center,
           children: <Widget>[
             ElevatedButton(
-              onPressed: () => const routes.SettingsRoute().go(context),
-              child: const Text('Go to the Settings screen'),
+              onPressed: () => const routes.AttendanceRoute().go(context),
+              child: const Text('Go to the Attendance screen'),
             ),
             ElevatedButton(
               onPressed: () => const routes.SignInRoute().go(context),
