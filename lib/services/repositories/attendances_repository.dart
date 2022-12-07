@@ -3,7 +3,7 @@ import 'package:ecc_school_app_mobile/models/user/user_auth_model.dart';
 import 'package:ecc_school_app_mobile/services/networking/api_endpoint.dart';
 import 'package:ecc_school_app_mobile/services/networking/api_service.dart';
 
-class AttendanceRepository {
+class AttendancesRepository {
   final _apiService = ApiService();
 
   Future<List<Attendance>> getAttendances(
