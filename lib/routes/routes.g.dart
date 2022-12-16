@@ -19,6 +19,16 @@ GoRoute get $homeRoute => GoRouteData.$route(
           path: 'attendance',
           factory: $AttendanceRouteExtension._fromState,
         ),
+        GoRouteData.$route(
+          path: 'news',
+          factory: $NewsRouteExtension._fromState,
+          routes: [
+            GoRouteData.$route(
+              path: ':newsId',
+              factory: $NewsDetailRouteExtension._fromState,
+            ),
+          ],
+        ),
       ],
     );
 
@@ -40,6 +50,32 @@ extension $AttendanceRouteExtension on AttendanceRoute {
 
   String get location => GoRouteData.$location(
         '/attendance',
+      );
+
+  void go(BuildContext context) => context.go(location, extra: this);
+
+  void push(BuildContext context) => context.push(location, extra: this);
+}
+
+extension $NewsRouteExtension on NewsRoute {
+  static NewsRoute _fromState(GoRouterState state) => const NewsRoute();
+
+  String get location => GoRouteData.$location(
+        '/news',
+      );
+
+  void go(BuildContext context) => context.go(location, extra: this);
+
+  void push(BuildContext context) => context.push(location, extra: this);
+}
+
+extension $NewsDetailRouteExtension on NewsDetailRoute {
+  static NewsDetailRoute _fromState(GoRouterState state) => NewsDetailRoute(
+        state.params['newsId']!,
+      );
+
+  String get location => GoRouteData.$location(
+        '/news/${Uri.encodeComponent(newsId)}',
       );
 
   void go(BuildContext context) => context.go(location, extra: this);

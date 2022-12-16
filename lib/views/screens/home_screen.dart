@@ -22,6 +22,10 @@ class HomeScreen extends ConsumerWidget {
               child: const Text('Go to the Attendance screen'),
             ),
             ElevatedButton(
+              onPressed: () => const routes.NewsRoute().go(context),
+              child: const Text('Go to the News screen'),
+            ),
+            ElevatedButton(
               onPressed: () => const routes.SignInRoute().go(context),
               child: const Text('Go to the SignIn screen'),
             ),
