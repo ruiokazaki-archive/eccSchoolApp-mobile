@@ -1,5 +1,7 @@
 import 'package:ecc_school_app_mobile/views/screens/home_screen.dart';
 import 'package:ecc_school_app_mobile/views/screens/attendance_screen.dart';
+import 'package:ecc_school_app_mobile/views/screens/news_detail_screen.dart';
+import 'package:ecc_school_app_mobile/views/screens/news_screen.dart';
 import 'package:ecc_school_app_mobile/views/screens/sign_in_screen.dart';
 import 'package:flutter/material.dart';
 import 'package:go_router/go_router.dart';
@@ -13,6 +15,12 @@ final GoRouter goRouter = GoRouter(
 // NOTE: 認証済みユーザーのみがアクセスできるroutes
 @TypedGoRoute<HomeRoute>(path: '/', routes: [
   TypedGoRoute<AttendanceRoute>(path: 'attendance'),
+  TypedGoRoute<NewsRoute>(
+    path: 'news',
+    routes: [
+      TypedGoRoute<NewsDetailRoute>(path: ':newsId'),
+    ],
+  ),
 ])
 class HomeRoute extends GoRouteData {
   const HomeRoute();
@@ -28,6 +36,25 @@ class AttendanceRoute extends GoRouteData {
   Widget build(BuildContext context) => const AttendanceScreen();
 }
 
+class NewsRoute extends GoRouteData {
+  const NewsRoute();
+
+  @override
+  Widget build(BuildContext context) => const NewsScreen();
+}
+
+class NewsDetailRoute extends GoRouteData {
+  const NewsDetailRoute(
+    this.newsId,
+  );
+
+  final String newsId;
+
+  @override
+  Widget build(BuildContext context) => NewsDetailScreen(newsId);
+}
+
+// NOTE: 認証されていないユーザーのみがアクセスできるroutes
 @TypedGoRoute<SignInRoute>(
   path: '/signIn',
 )
