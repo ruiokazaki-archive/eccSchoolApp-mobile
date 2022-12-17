@@ -1,3 +1,4 @@
+import 'package:ecc_school_app_mobile/views/screens/calendar_screen.dart';
 import 'package:ecc_school_app_mobile/views/screens/home_screen.dart';
 import 'package:ecc_school_app_mobile/views/screens/attendance_screen.dart';
 import 'package:ecc_school_app_mobile/views/screens/news_detail_screen.dart';
@@ -17,12 +18,10 @@ final GoRouter goRouter = GoRouter(
 @TypedGoRoute<HomeRoute>(path: '/', routes: [
   TypedGoRoute<AttendanceRoute>(path: 'attendance'),
   TypedGoRoute<TimetableRoute>(path: 'timetable'),
-  TypedGoRoute<NewsRoute>(
-    path: 'news',
-    routes: [
-      TypedGoRoute<NewsDetailRoute>(path: ':newsId'),
-    ],
-  ),
+  TypedGoRoute<CalendarRoute>(path: 'calendar'),
+  TypedGoRoute<NewsRoute>(path: 'news', routes: [
+    TypedGoRoute<NewsDetailRoute>(path: ':newsId'),
+  ]),
 ])
 class HomeRoute extends GoRouteData {
   const HomeRoute();
@@ -43,6 +42,13 @@ class TimetableRoute extends GoRouteData {
 
   @override
   Widget build(BuildContext context) => const TimetableScreen();
+}
+
+class CalendarRoute extends GoRouteData {
+  const CalendarRoute();
+
+  @override
+  Widget build(BuildContext context) => const CalendarScreen();
 }
 
 class NewsRoute extends GoRouteData {

@@ -30,6 +30,10 @@ class HomeScreen extends ConsumerWidget {
               child: const Text('Go to the Timetable screen'),
             ),
             ElevatedButton(
+              onPressed: () => const routes.CalendarRoute().go(context),
+              child: const Text('Go to the Calendar screen'),
+            ),
+            ElevatedButton(
               onPressed: () => const routes.SignInRoute().go(context),
               child: const Text('Go to the SignIn screen'),
             ),
