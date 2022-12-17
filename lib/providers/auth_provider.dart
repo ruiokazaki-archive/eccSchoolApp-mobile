@@ -12,7 +12,7 @@ class AuthNotifier extends StateNotifier<UserAuth?> {
 
   final authRepository = AuthRepository();
 
-  void signIn({
+  Future signIn({
     required String userId,
     required String password,
   }) async {

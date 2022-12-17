@@ -8,9 +8,6 @@ class HomeScreen extends ConsumerWidget {
 
   @override
   Widget build(BuildContext context, WidgetRef ref) {
-    final userAuth = ref.watch(authNotifierProvider);
-    final authNotifier = ref.watch(authNotifierProvider.notifier);
-
     return Scaffold(
       appBar: AppBar(title: const Text('Home Screen')),
       body: Center(
@@ -34,15 +31,11 @@ class HomeScreen extends ConsumerWidget {
               child: const Text('Go to the Calendar screen'),
             ),
             ElevatedButton(
-              onPressed: () => const routes.SignInRoute().go(context),
-              child: const Text('Go to the SignIn screen'),
-            ),
-            Text("userAuth: $userAuth"),
-            TextButton(
-              onPressed: () {
-                authNotifier.getLocalUserAuth();
+              onPressed: () => {
+                ref.read(authNotifierProvider.notifier).signOut(),
+                const routes.SignInRoute().go(context),
               },
-              child: const Text('Get Local User Auth'),
+              child: const Text('Sign out'),
             ),
           ],
         ),
