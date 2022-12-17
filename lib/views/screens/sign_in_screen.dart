@@ -1,9 +1,9 @@
 import 'package:ecc_school_app_mobile/providers/auth_provider.dart';
-import 'package:ecc_school_app_mobile/routes/routes.dart' as routes;
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:flutter_hooks/flutter_hooks.dart';
 import 'package:hooks_riverpod/hooks_riverpod.dart';
+import 'package:ecc_school_app_mobile/routes/routes.dart' as routes;
 
 class SignInScreen extends HookConsumerWidget {
   const SignInScreen({super.key});
@@ -26,22 +26,20 @@ class SignInScreen extends HookConsumerWidget {
       return null;
     }
 
-    void onSubmitHandler() {
+    Future<void> onSubmitHandler(Function onSuccess) async {
       isLoading.value = true;
 
       if (formKey.currentState!.validate()) {
         try {
-          ref.read(authNotifierProvider.notifier).signIn(
+          await ref.read(authNotifierProvider.notifier).signIn(
                 userId: userIdController.text,
                 password: passwordController.text,
               );
           userIdController.clear();
           passwordController.clear();
           isLoading.value = false;
-          // ignore: use_build_context_synchronously
-          const routes.HomeRoute().go(context);
+          onSuccess();
         } catch (e) {
-          debugPrint(e.toString());
           isFailure.value = true;
         }
       }
@@ -62,7 +60,8 @@ class SignInScreen extends HookConsumerWidget {
                         formValidator(value, 'Student number'),
                     keyboardType: TextInputType.number,
                     inputFormatters: [FilteringTextInputFormatter.digitsOnly],
-                    onFieldSubmitted: (_) => onSubmitHandler(),
+                    onFieldSubmitted: (_) => onSubmitHandler(
+                        () => const routes.HomeRoute().go(context)),
                     decoration: const InputDecoration(
                       labelText: 'Student number',
                       hintText: 'Your student number',
@@ -73,7 +72,8 @@ class SignInScreen extends HookConsumerWidget {
                     validator: (value) => formValidator(value, 'Password'),
                     keyboardType: TextInputType.number,
                     inputFormatters: [FilteringTextInputFormatter.digitsOnly],
-                    onFieldSubmitted: (_) => onSubmitHandler(),
+                    onFieldSubmitted: (_) => onSubmitHandler(
+                        () => const routes.HomeRoute().go(context)),
                     obscureText: isUnVisible.value,
                     decoration: InputDecoration(
                       labelText: 'Password',
@@ -94,7 +94,8 @@ class SignInScreen extends HookConsumerWidget {
                       style: TextStyle(color: Colors.red),
                     ),
                   ElevatedButton(
-                    onPressed: onSubmitHandler,
+                    onPressed: () => onSubmitHandler(
+                        () => const routes.HomeRoute().go(context)),
                     child: const Text("submit"),
                   ),
                 ],
