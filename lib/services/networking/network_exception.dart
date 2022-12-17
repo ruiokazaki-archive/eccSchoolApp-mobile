@@ -85,20 +85,11 @@ class NetworkException with _$NetworkException {
               );
             }
 
-            final name = error.response?.data['headers']['error'];
-            final message = error.response?.data['headers']['message'];
-            switch (name) {
-              case ExceptionConstants.TokenExpiredException:
-                return NetworkException.TokenExpiredException(
-                  name: name,
-                  message: message,
-                );
-              default:
-                return NetworkException.ApiException(
-                  name: name,
-                  message: message,
-                );
-            }
+            return NetworkException.ApiException(
+              name:
+                  '${error.response!.statusCode} ${error.response!.statusMessage}',
+              message: error.message,
+            );
         }
       } else {
         return const NetworkException.UnrecognizedException(
