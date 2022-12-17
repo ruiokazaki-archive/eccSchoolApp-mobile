@@ -20,6 +20,10 @@ GoRoute get $homeRoute => GoRouteData.$route(
           factory: $AttendanceRouteExtension._fromState,
         ),
         GoRouteData.$route(
+          path: 'timetable',
+          factory: $TimetableRouteExtension._fromState,
+        ),
+        GoRouteData.$route(
           path: 'news',
           factory: $NewsRouteExtension._fromState,
           routes: [
@@ -50,6 +54,19 @@ extension $AttendanceRouteExtension on AttendanceRoute {
 
   String get location => GoRouteData.$location(
         '/attendance',
+      );
+
+  void go(BuildContext context) => context.go(location, extra: this);
+
+  void push(BuildContext context) => context.push(location, extra: this);
+}
+
+extension $TimetableRouteExtension on TimetableRoute {
+  static TimetableRoute _fromState(GoRouterState state) =>
+      const TimetableRoute();
+
+  String get location => GoRouteData.$location(
+        '/timetable',
       );
 
   void go(BuildContext context) => context.go(location, extra: this);
