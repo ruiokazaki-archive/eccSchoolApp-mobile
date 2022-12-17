@@ -1,10 +1,12 @@
 import 'package:dio/dio.dart';
 import 'package:ecc_school_app_mobile/helpers/typedefs.dart';
+import 'package:ecc_school_app_mobile/services/networking/api_interface.dart';
 import 'package:ecc_school_app_mobile/services/networking/dio_service.dart';
 
-class ApiService {
+class ApiService implements ApiInterface {
   final _dioService = DioService();
 
+  @override
   Future<T> postDocument<T>({
     required String endpoint,
     required T Function(JSON responseBody) converter,
@@ -19,6 +21,7 @@ class ApiService {
     return converter(response);
   }
 
+  @override
   Future<List<T>> postCollection<T>({
     required String endpoint,
     required T Function(JSON responseBody) converter,
@@ -33,6 +36,7 @@ class ApiService {
     return response.map((dataMap) => converter(dataMap)).toList();
   }
 
+  @override
   Future<T> getDocument<T>({
     required String endpoint,
     required String token,
@@ -51,6 +55,7 @@ class ApiService {
     return converter(response);
   }
 
+  @override
   Future<List<T>> getCollection<T>({
     required String endpoint,
     required String token,
