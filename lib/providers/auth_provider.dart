@@ -6,7 +6,9 @@ final authNotifierProvider =
     StateNotifierProvider<AuthNotifier, UserAuth?>((ref) => AuthNotifier());
 
 class AuthNotifier extends StateNotifier<UserAuth?> {
-  AuthNotifier() : super(null);
+  AuthNotifier() : super(null) {
+    getLocalUserAuth();
+  }
 
   final authRepository = AuthRepository();
 
