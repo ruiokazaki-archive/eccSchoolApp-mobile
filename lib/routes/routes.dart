@@ -3,6 +3,7 @@ import 'package:ecc_school_app_mobile/views/screens/attendance_screen.dart';
 import 'package:ecc_school_app_mobile/views/screens/news_detail_screen.dart';
 import 'package:ecc_school_app_mobile/views/screens/news_screen.dart';
 import 'package:ecc_school_app_mobile/views/screens/sign_in_screen.dart';
+import 'package:ecc_school_app_mobile/views/screens/timetable_screen.dart';
 import 'package:flutter/material.dart';
 import 'package:go_router/go_router.dart';
 
@@ -15,6 +16,7 @@ final GoRouter goRouter = GoRouter(
 // NOTE: 認証済みユーザーのみがアクセスできるroutes
 @TypedGoRoute<HomeRoute>(path: '/', routes: [
   TypedGoRoute<AttendanceRoute>(path: 'attendance'),
+  TypedGoRoute<TimetableRoute>(path: 'timetable'),
   TypedGoRoute<NewsRoute>(
     path: 'news',
     routes: [
@@ -34,6 +36,13 @@ class AttendanceRoute extends GoRouteData {
 
   @override
   Widget build(BuildContext context) => const AttendanceScreen();
+}
+
+class TimetableRoute extends GoRouteData {
+  const TimetableRoute();
+
+  @override
+  Widget build(BuildContext context) => const TimetableScreen();
 }
 
 class NewsRoute extends GoRouteData {
