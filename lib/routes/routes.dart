@@ -1,3 +1,4 @@
+import 'package:ecc_school_app_mobile/views/screens/app_startup_screen.dart';
 import 'package:ecc_school_app_mobile/views/screens/calendar_screen.dart';
 import 'package:ecc_school_app_mobile/views/screens/home_screen.dart';
 import 'package:ecc_school_app_mobile/views/screens/attendance_screen.dart';
@@ -12,7 +13,17 @@ part 'routes.g.dart';
 
 final GoRouter goRouter = GoRouter(
   routes: $appRoutes,
+  initialLocation: "/startup",
 );
+
+// NOTE: アプリを立ち上げた時に表示する画面
+@TypedGoRoute<AppStartupRoute>(path: '/startup')
+class AppStartupRoute extends GoRouteData {
+  const AppStartupRoute();
+
+  @override
+  Widget build(BuildContext context) => const AppStartupScreen();
+}
 
 // NOTE: 認証済みユーザーのみがアクセスできるroutes
 @TypedGoRoute<HomeRoute>(path: '/', routes: [
