@@ -7,9 +7,28 @@ part of 'routes.dart';
 // **************************************************************************
 
 List<GoRoute> get $appRoutes => [
+      $appStartupRoute,
       $homeRoute,
       $signInRoute,
     ];
+
+GoRoute get $appStartupRoute => GoRouteData.$route(
+      path: '/startup',
+      factory: $AppStartupRouteExtension._fromState,
+    );
+
+extension $AppStartupRouteExtension on AppStartupRoute {
+  static AppStartupRoute _fromState(GoRouterState state) =>
+      const AppStartupRoute();
+
+  String get location => GoRouteData.$location(
+        '/startup',
+      );
+
+  void go(BuildContext context) => context.go(location, extra: this);
+
+  void push(BuildContext context) => context.push(location, extra: this);
+}
 
 GoRoute get $homeRoute => GoRouteData.$route(
       path: '/',
