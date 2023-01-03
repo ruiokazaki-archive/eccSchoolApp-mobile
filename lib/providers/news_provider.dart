@@ -7,7 +7,9 @@ final newsNotifierProvider =
     StateNotifierProvider<NewsNotifier, List<News>>((ref) => NewsNotifier(ref));
 
 class NewsNotifier extends StateNotifier<List<News>> {
-  NewsNotifier(this.ref) : super([]);
+  NewsNotifier(this.ref) : super([]) {
+    getNews();
+  }
 
   final newsRepository = NewsRepository();
   final Ref ref;
