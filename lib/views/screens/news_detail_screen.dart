@@ -9,22 +9,14 @@ class NewsDetailScreen extends HookConsumerWidget {
   @override
   Widget build(BuildContext context, WidgetRef ref) {
     final newsDetail = ref.watch(newsDetailNotifierProvider);
+    ref.read(newsDetailNotifierProvider.notifier).getNewsDetail(newsId);
 
     return Scaffold(
       appBar: AppBar(title: const Text('News Detail Screen')),
       body: Center(
         child: Column(
           children: [
-            const Text("News Detail Screen"),
             Text(newsDetail.toString()),
-            TextButton(
-              onPressed: () {
-                ref
-                    .read(newsDetailNotifierProvider.notifier)
-                    .getNewsDetail(newsId);
-              },
-              child: const Text("Get News Detail"),
-            )
           ],
         ),
       ),
