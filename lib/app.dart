@@ -11,6 +11,7 @@ class App extends StatelessWidget {
       title: 'ECC School App',
       theme: originalTheme,
       routerConfig: goRouter,
+      debugShowCheckedModeBanner: false,
     );
   }
 }
