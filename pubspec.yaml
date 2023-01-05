@@ -23,6 +23,8 @@ dependencies:
   shared_preferences: ^2.0.15
   flutter_html: ^2.2.1
   url_launcher: ^6.1.7
+  table_calendar: ^3.0.8
+  intl: ^0.17.0
 
 dev_dependencies:
   flutter_test:
