@@ -32,8 +32,8 @@ class CalendarNotifier extends StateNotifier<Map<DateTime, List<String>>> {
     state = {
       ...state,
       ...Map.fromIterables(
-        calendar.map(
-            (calendarDay) => DateTime.parse("$year-$month-${calendarDay.day}")),
+        calendar.map((calendarDay) => DateTime.parse(
+            "$year-$month-${int.parse(calendarDay.day) > 9 ? calendarDay.day : "0${calendarDay.day}"}")),
         calendar.map((calendarDay) =>
             calendarDay.plans.map((plan) => plan.title).toList()),
       ),
