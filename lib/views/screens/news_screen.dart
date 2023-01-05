@@ -23,7 +23,7 @@ class NewsScreen extends HookConsumerWidget {
             ),
             onPressed: () => routes.NewsDetailRoute(news[index].id).go(context),
             child: Container(
-              padding: const EdgeInsets.all(8),
+              padding: const EdgeInsets.symmetric(vertical: 8),
               child: Row(
                 children: [
                   Container(
@@ -31,7 +31,14 @@ class NewsScreen extends HookConsumerWidget {
                     child: CircleAvatar(
                       backgroundColor:
                           NewsColorsGenerator.getColor(news[index].tag),
-                      radius: 16.0,
+                      radius: 20.0,
+                      child: Text(
+                        news[index].tag[0],
+                        style: const TextStyle(
+                          color: Colors.white,
+                          fontSize: 18,
+                        ),
+                      ),
                     ),
                   ),
                   Flexible(
