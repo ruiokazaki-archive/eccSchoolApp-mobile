@@ -1,14 +1,13 @@
-import 'package:ecc_school_app_mobile/models/calendar/calendar_model.dart';
 import 'package:ecc_school_app_mobile/providers/auth_provider.dart';
 import 'package:ecc_school_app_mobile/services/repositories/calendar_repository.dart';
 import 'package:hooks_riverpod/hooks_riverpod.dart';
 import 'package:intl/intl.dart';
 
 final calendarNotifierProvider =
-    StateNotifierProvider<CalendarNotifier, Map<String, List<CalendarDay>>>(
+    StateNotifierProvider<CalendarNotifier, Map<DateTime, List<String>>>(
         (ref) => CalendarNotifier(ref));
 
-class CalendarNotifier extends StateNotifier<Map<String, List<CalendarDay>>> {
+class CalendarNotifier extends StateNotifier<Map<DateTime, List<String>>> {
   CalendarNotifier(this.ref) : super({}) {
     DateTime now = DateTime.now();
     getCalendar(DateFormat('yyyy').format(now), DateFormat('MM').format(now));
@@ -29,6 +28,15 @@ class CalendarNotifier extends StateNotifier<Map<String, List<CalendarDay>>> {
 
     final calendar =
         await calendarRepository.getCalendar(userAuth, year, month);
-    state = {...state, "$year$month": calendar};
+
+    state = {
+      ...state,
+      ...Map.fromIterables(
+        calendar.map(
+            (calendarDay) => DateTime.parse("$year-$month-${calendarDay.day}")),
+        calendar.map((calendarDay) =>
+            calendarDay.plans.map((plan) => plan.title).toList()),
+      ),
+    };
   }
 }

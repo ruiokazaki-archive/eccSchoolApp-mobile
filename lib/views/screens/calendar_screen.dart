@@ -1,5 +1,6 @@
 import 'dart:collection';
 
+import 'package:ecc_school_app_mobile/providers/calendar_provider.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_hooks/flutter_hooks.dart';
 import 'package:hooks_riverpod/hooks_riverpod.dart';
@@ -42,44 +43,12 @@ class CalendarScreen extends HookConsumerWidget {
     final focusedDayState = useState<DateTime>(DateTime.now());
     final selectedDayState = useState<DateTime>(DateTime.now());
 
-    final eventsListState = useState<Map<DateTime, List<String>>>({
-      DateTime.now().subtract(const Duration(days: 2)): [
-        'Event A6',
-        'Event B6'
-      ],
-      DateTime.now(): ['Event A7', 'Event B7', 'Event C7', 'Event D7'],
-      DateTime.now().add(const Duration(days: 1)): [
-        'Event A8',
-        'Event B8',
-        'Event C8',
-        'Event D8'
-      ],
-      DateTime.now().add(const Duration(days: 3)):
-          {'Event A9', 'Event A10', 'Event B9'}.toList(),
-      DateTime.now().add(const Duration(days: 7)): [
-        'Event A10',
-        'Event B10',
-        'Event C10'
-      ],
-      DateTime.now().add(const Duration(days: 11)): ['Event A11', 'Event B11'],
-      DateTime.now().add(const Duration(days: 17)): [
-        'Event A12',
-        'Event B12',
-        'Event C12',
-        'Event D12'
-      ],
-      DateTime.now().add(const Duration(days: 22)): ['Event A13', 'Event B13'],
-      DateTime.now().add(const Duration(days: 26)): [
-        'Event A14',
-        'Event B14',
-        'Event C14'
-      ],
-    });
+    final eventsListState = ref.watch(calendarNotifierProvider);
 
     final events = LinkedHashMap<DateTime, List<String>>(
       equals: isSameDay,
       hashCode: getHashCode,
-    )..addAll(eventsListState.value);
+    )..addAll(eventsListState);
 
     List getEventForDay(DateTime day) {
       return events[day] ?? [];
