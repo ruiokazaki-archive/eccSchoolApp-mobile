@@ -8,7 +8,9 @@ final attendancesNotifierProvider =
         (ref) => AttendancesNotifier(ref));
 
 class AttendancesNotifier extends StateNotifier<List<Attendance>> {
-  AttendancesNotifier(this.ref) : super([]);
+  AttendancesNotifier(this.ref) : super([]) {
+    getAttendances();
+  }
 
   final attendanceRepository = AttendancesRepository();
   final Ref ref;
