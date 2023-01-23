@@ -137,7 +137,8 @@ class AttendanceScreen extends HookConsumerWidget {
 
     return Scaffold(
       appBar: AppBar(title: const Text('Attendance Screen')),
-      body: Container(
+      body: SizedBox(
+        width: double.infinity,
         child: Padding(
           padding: const EdgeInsets.all(8.0),
           child: buildTable(),
