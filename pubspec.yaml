@@ -25,6 +25,7 @@ dependencies:
   url_launcher: ^6.1.7
   table_calendar: ^3.0.8
   intl: ^0.17.0
+  animations: ^2.0.7
 
 dev_dependencies:
   flutter_test:
@@ -40,3 +41,4 @@ flutter:
   uses-material-design: true
   assets:
     - .env
+    - assets/introduction/
