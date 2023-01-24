@@ -13,7 +13,7 @@ class FirstView extends StatefulWidget {
 class _FirstViewState extends State<FirstView> {
   @override
   Widget build(BuildContext context) {
-    final introductionanimation =
+    final introductionAnimation =
         Tween<Offset>(begin: const Offset(0, 0), end: const Offset(0.0, -1.0))
             .animate(CurvedAnimation(
       parent: widget.animationController,
@@ -23,8 +23,9 @@ class _FirstViewState extends State<FirstView> {
         curve: Curves.fastOutSlowIn,
       ),
     ));
+
     return SlideTransition(
-      position: introductionanimation,
+      position: introductionAnimation,
       child: SingleChildScrollView(
         child: Column(
           mainAxisAlignment: MainAxisAlignment.center,
