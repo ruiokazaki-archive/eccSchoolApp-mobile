@@ -2,6 +2,7 @@ import 'package:ecc_school_app_mobile/views/screens/app_startup_screen.dart';
 import 'package:ecc_school_app_mobile/views/screens/calendar_screen.dart';
 import 'package:ecc_school_app_mobile/views/screens/home_screen.dart';
 import 'package:ecc_school_app_mobile/views/screens/attendance_screen.dart';
+import 'package:ecc_school_app_mobile/views/screens/introduction_screen.dart';
 import 'package:ecc_school_app_mobile/views/screens/news_detail_screen.dart';
 import 'package:ecc_school_app_mobile/views/screens/news_screen.dart';
 import 'package:ecc_school_app_mobile/views/screens/sign_in_screen.dart';
@@ -89,4 +90,14 @@ class SignInRoute extends GoRouteData {
 
   @override
   Widget build(BuildContext context) => const SignInScreen();
+}
+
+@TypedGoRoute<IntroductionRoute>(
+  path: '/introduction',
+)
+class IntroductionRoute extends GoRouteData {
+  const IntroductionRoute();
+
+  @override
+  Widget build(BuildContext context) => const IntroductionScreen();
 }
