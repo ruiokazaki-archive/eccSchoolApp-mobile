@@ -155,7 +155,7 @@ class SignInScreen extends HookConsumerWidget {
 
     Widget _buildPageContent(BuildContext context) {
       return Container(
-        color: const Color(0xffF7EBE1),
+        color: Colors.blue.shade200,
         child: ListView(
           children: <Widget>[
             const SizedBox(
