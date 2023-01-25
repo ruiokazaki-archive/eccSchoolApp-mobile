@@ -1,14 +1,15 @@
 import 'package:flutter/material.dart';
 
 AppBar appBar({
-  required String title,
+  String? title,
   required BuildContext context,
 }) {
   return AppBar(
+    automaticallyImplyLeading: false,
     centerTitle: false,
     backgroundColor: Colors.white,
     elevation: 0,
-    toolbarHeight: 100,
+    toolbarHeight: title != null ? 100 : 50,
     title: Column(
       mainAxisAlignment: MainAxisAlignment.start,
       crossAxisAlignment: CrossAxisAlignment.start,
@@ -37,14 +38,15 @@ AppBar appBar({
             ),
           ],
         ),
-        const SizedBox(height: 16),
-        Text(
-          title,
-          style: Theme.of(context).textTheme.headline4?.copyWith(
-                fontWeight: FontWeight.bold,
-                color: Colors.black,
-              ),
-        ),
+        if (title != null) const SizedBox(height: 16),
+        if (title != null)
+          Text(
+            title,
+            style: Theme.of(context).textTheme.headline5?.copyWith(
+                  fontWeight: FontWeight.bold,
+                  color: Colors.black,
+                ),
+          ),
       ],
     ),
   );

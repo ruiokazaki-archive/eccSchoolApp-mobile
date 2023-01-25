@@ -1,6 +1,7 @@
 import 'dart:collection';
 
 import 'package:ecc_school_app_mobile/providers/calendar_provider.dart';
+import 'package:ecc_school_app_mobile/views/widgets/reuse/app_bar.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_hooks/flutter_hooks.dart';
 import 'package:hooks_riverpod/hooks_riverpod.dart';
@@ -56,9 +57,7 @@ class CalendarScreen extends HookConsumerWidget {
     }
 
     return Scaffold(
-      appBar: AppBar(
-        title: const Text('calendar sample'),
-      ),
+      appBar: appBar(title: '行事予定', context: context),
       body: Column(
         children: [
           TableCalendar(

@@ -1,6 +1,7 @@
 // ignore_for_file: constant_identifier_names
 
 import 'package:ecc_school_app_mobile/providers/attendances_provider.dart';
+import 'package:ecc_school_app_mobile/views/widgets/reuse/app_bar.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_expandable_table/flutter_expandable_table.dart';
 import 'package:hooks_riverpod/hooks_riverpod.dart';
@@ -136,11 +137,11 @@ class AttendanceScreen extends HookConsumerWidget {
     }
 
     return Scaffold(
-      appBar: AppBar(title: const Text('Attendance Screen')),
+      appBar: appBar(title: '出席率', context: context),
       body: SizedBox(
         width: double.infinity,
         child: Padding(
-          padding: const EdgeInsets.all(8.0),
+          padding: const EdgeInsets.all(8),
           child: buildTable(),
         ),
       ),
