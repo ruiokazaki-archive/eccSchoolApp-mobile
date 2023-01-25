@@ -5,6 +5,7 @@ AppBar appBar({
   required BuildContext context,
 }) {
   return AppBar(
+    automaticallyImplyLeading: false,
     centerTitle: false,
     backgroundColor: Colors.white,
     elevation: 0,
