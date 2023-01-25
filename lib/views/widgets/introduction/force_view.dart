@@ -97,6 +97,20 @@ class ForceVew extends StatelessWidget {
                   ),
                 ),
               ),
+              SlideTransition(
+                position: imageFirstHalfAnimation,
+                child: SlideTransition(
+                  position: imageSecondHalfAnimation,
+                  child: Container(
+                    constraints:
+                        const BoxConstraints(maxWidth: 350, maxHeight: 250),
+                    child: Image.asset(
+                      'assets/introduction/img1.png',
+                      fit: BoxFit.contain,
+                    ),
+                  ),
+                ),
+              ),
             ],
           ),
         ),

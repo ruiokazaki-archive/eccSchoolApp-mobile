@@ -75,7 +75,7 @@ class _FirstViewState extends State<FirstView> {
                   color: const Color(0xff132137),
                 ),
                 child: const Text(
-                  "Start App",
+                  "使い方を見る",
                   style: TextStyle(
                     fontSize: 18,
                     color: Colors.white,

@@ -81,7 +81,7 @@ class SecondView extends StatelessWidget {
               SlideTransition(
                 position: secondAnimation,
                 child: const Text(
-                  "非公式の学生アプリ",
+                  "出席率管理システム",
                   style: TextStyle(fontSize: 26.0, fontWeight: FontWeight.bold),
                 ),
               ),
@@ -93,6 +93,20 @@ class SecondView extends StatelessWidget {
                   child: Text(
                     "Lorem ipsum dolor sit amet,consectetur adipiscing elit,sed do eiusmod tempor incididunt ut labore",
                     textAlign: TextAlign.center,
+                  ),
+                ),
+              ),
+              const SizedBox(
+                height: 16,
+              ),
+              SlideTransition(
+                position: imageAnimation,
+                child: Container(
+                  constraints:
+                      const BoxConstraints(maxWidth: 350, maxHeight: 250),
+                  child: Image.asset(
+                    'assets/introduction/img1.png',
+                    fit: BoxFit.contain,
                   ),
                 ),
               ),

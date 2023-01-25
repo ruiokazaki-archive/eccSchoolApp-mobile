@@ -43,7 +43,7 @@ class FifthView extends StatelessWidget {
       ),
     ));
 
-    final fifthImageAnimation =
+    final imageAnimation =
         Tween<Offset>(begin: const Offset(4, 0), end: const Offset(0, 0))
             .animate(CurvedAnimation(
       parent: animationController,
@@ -76,6 +76,17 @@ class FifthView extends StatelessWidget {
                 child: Text(
                   "Stay organised and live stress-free with you-do app",
                   textAlign: TextAlign.center,
+                ),
+              ),
+              SlideTransition(
+                position: imageAnimation,
+                child: Container(
+                  constraints:
+                      const BoxConstraints(maxWidth: 350, maxHeight: 250),
+                  child: Image.asset(
+                    'assets/introduction/img1.png',
+                    fit: BoxFit.contain,
+                  ),
                 ),
               ),
             ],
