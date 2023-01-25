@@ -1,6 +1,6 @@
 import 'package:ecc_school_app_mobile/providers/attendances_provider.dart';
 import 'package:ecc_school_app_mobile/providers/timetable_provider.dart';
-import 'package:ecc_school_app_mobile/views/widgets/reuse/app_bar.dart';
+import 'package:ecc_school_app_mobile/views/widgets/reuse/layout.dart';
 import 'package:flutter/material.dart';
 import 'package:hooks_riverpod/hooks_riverpod.dart';
 
@@ -12,8 +12,9 @@ class TimetableScreen extends HookConsumerWidget {
     final timetables = ref.watch(timetableNotifierProvider);
     final attendances = ref.watch(attendancesNotifierProvider);
 
-    return Scaffold(
-      appBar: appBar(title: '時間割', context: context),
+    return layout(
+      pageTitle: '時間割',
+      context: context,
       body: Center(
         child: Column(
           children: [

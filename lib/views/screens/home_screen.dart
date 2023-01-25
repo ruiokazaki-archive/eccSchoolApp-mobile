@@ -1,7 +1,7 @@
 import 'package:ecc_school_app_mobile/helpers/utils/open_url.dart';
 import 'package:ecc_school_app_mobile/providers/auth_provider.dart';
 import 'package:ecc_school_app_mobile/views/widgets/home/wrap_item.dart';
-import 'package:ecc_school_app_mobile/views/widgets/reuse/app_bar.dart';
+import 'package:ecc_school_app_mobile/views/widgets/reuse/layout.dart';
 import 'package:flutter/material.dart';
 import 'package:hooks_riverpod/hooks_riverpod.dart';
 import 'package:ecc_school_app_mobile/routes/routes.dart' as routes;
@@ -11,8 +11,9 @@ class HomeScreen extends ConsumerWidget {
 
   @override
   Widget build(BuildContext context, WidgetRef ref) {
-    return Scaffold(
-      appBar: appBar(title: 'Home', context: context),
+    return layout(
+      pageTitle: 'Home',
+      context: context,
       body: SizedBox(
         width: double.infinity,
         child: Column(
