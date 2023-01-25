@@ -86,10 +86,10 @@ class CenterNextButton extends StatelessWidget {
                     ) {
                       return SharedAxisTransition(
                         fillColor: Colors.transparent,
-                        child: child,
                         animation: animation,
                         secondaryAnimation: secondaryAnimation,
                         transitionType: SharedAxisTransitionType.vertical,
+                        child: child,
                       );
                     },
                     child: signUpMoveAnimation.value > 0.7
@@ -104,7 +104,7 @@ class CenterNextButton extends StatelessWidget {
                                     MainAxisAlignment.spaceBetween,
                                 children: const [
                                   Text(
-                                    'Sign Up',
+                                    'Sign In',
                                     style: TextStyle(
                                       color: Colors.white,
                                       fontSize: 18,
@@ -138,22 +138,9 @@ class CenterNextButton extends StatelessWidget {
               child: Row(
                 mainAxisAlignment: MainAxisAlignment.center,
                 children: const [
-                  Text(
-                    'Already have an account? ',
-                    style: TextStyle(
-                      color: Colors.grey,
-                      fontSize: 14,
-                      fontWeight: FontWeight.normal,
-                    ),
-                  ),
-                  Text(
-                    'Login',
-                    style: TextStyle(
-                      color: Color(0xff132137),
-                      fontSize: 16,
-                      fontWeight: FontWeight.bold,
-                    ),
-                  ),
+                  SizedBox(
+                    height: 16,
+                  )
                 ],
               ),
             ),
