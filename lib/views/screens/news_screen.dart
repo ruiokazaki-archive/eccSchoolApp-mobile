@@ -1,6 +1,6 @@
 import 'package:ecc_school_app_mobile/helpers/utils/news_colors_generator.dart';
 import 'package:ecc_school_app_mobile/providers/news_provider.dart';
-import 'package:ecc_school_app_mobile/views/widgets/reuse/app_bar.dart';
+import 'package:ecc_school_app_mobile/views/widgets/reuse/layout.dart';
 import 'package:flutter/material.dart';
 import 'package:hooks_riverpod/hooks_riverpod.dart';
 import 'package:ecc_school_app_mobile/routes/routes.dart' as routes;
@@ -12,8 +12,9 @@ class NewsScreen extends HookConsumerWidget {
   Widget build(BuildContext context, WidgetRef ref) {
     final news = ref.watch(newsNotifierProvider);
 
-    return Scaffold(
-      appBar: appBar(title: 'お知らせ', context: context),
+    return layout(
+      pageTitle: 'お知らせ',
+      context: context,
       body: ListView.separated(
         itemCount: news.length,
         itemBuilder: (context, index) {
