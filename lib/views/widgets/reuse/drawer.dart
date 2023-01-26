@@ -1,5 +1,6 @@
+import 'package:ecc_school_app_mobile/routes/app_router.dart';
+import 'package:ecc_school_app_mobile/routes/routes.dart';
 import 'package:flutter/material.dart';
-import 'package:ecc_school_app_mobile/routes/routes.dart' as routes;
 
 const Color primary = Colors.white;
 final Color active = Colors.grey.shade800;
@@ -26,56 +27,56 @@ ClipPath drawer(context) {
                     icon: Icons.home,
                     title: "Home",
                     onTap: () {
-                      const routes.HomeRoute().go(context);
+                      AppRouter.pushNamed(Routes.HomeRoute);
                     }),
                 _buildDivider(),
                 _buildRow(
                     icon: Icons.home,
                     title: "Home",
                     onTap: () {
-                      const routes.HomeRoute().go(context);
+                      AppRouter.pushNamed(Routes.HomeRoute);
                     }),
                 _buildDivider(),
                 _buildRow(
                     icon: Icons.home,
                     title: "Home",
                     onTap: () {
-                      const routes.HomeRoute().go(context);
+                      AppRouter.pushNamed(Routes.HomeRoute);
                     }),
                 _buildDivider(),
                 _buildRow(
                     icon: Icons.home,
                     title: "Home",
                     onTap: () {
-                      const routes.HomeRoute().go(context);
+                      AppRouter.pushNamed(Routes.HomeRoute);
                     }),
                 _buildDivider(),
                 _buildRow(
                     icon: Icons.home,
                     title: "Home",
                     onTap: () {
-                      const routes.HomeRoute().go(context);
+                      AppRouter.pushNamed(Routes.HomeRoute);
                     }),
                 _buildDivider(),
                 _buildRow(
                     icon: Icons.home,
                     title: "Home",
                     onTap: () {
-                      const routes.HomeRoute().go(context);
+                      AppRouter.pushNamed(Routes.HomeRoute);
                     }),
                 _buildDivider(),
                 _buildRow(
                     icon: Icons.home,
                     title: "Home",
                     onTap: () {
-                      const routes.HomeRoute().go(context);
+                      AppRouter.pushNamed(Routes.HomeRoute);
                     }),
                 _buildDivider(),
                 _buildRow(
                     icon: Icons.home,
                     title: "Home",
                     onTap: () {
-                      const routes.HomeRoute().go(context);
+                      AppRouter.pushNamed(Routes.HomeRoute);
                     }),
                 _buildDivider(),
               ],
