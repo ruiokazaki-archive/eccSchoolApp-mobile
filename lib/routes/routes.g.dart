@@ -10,6 +10,7 @@ List<GoRoute> get $appRoutes => [
       $appStartupRoute,
       $homeRoute,
       $signInRoute,
+      $introductionRoute,
     ];
 
 GoRoute get $appStartupRoute => GoRouteData.$route(
@@ -145,6 +146,24 @@ extension $SignInRouteExtension on SignInRoute {
 
   String get location => GoRouteData.$location(
         '/signIn',
+      );
+
+  void go(BuildContext context) => context.go(location, extra: this);
+
+  void push(BuildContext context) => context.push(location, extra: this);
+}
+
+GoRoute get $introductionRoute => GoRouteData.$route(
+      path: '/introduction',
+      factory: $IntroductionRouteExtension._fromState,
+    );
+
+extension $IntroductionRouteExtension on IntroductionRoute {
+  static IntroductionRoute _fromState(GoRouterState state) =>
+      const IntroductionRoute();
+
+  String get location => GoRouteData.$location(
+        '/introduction',
       );
 
   void go(BuildContext context) => context.go(location, extra: this);
