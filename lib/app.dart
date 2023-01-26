@@ -10,7 +10,9 @@ class App extends StatelessWidget {
     return MaterialApp.router(
       title: 'ECC School App',
       theme: originalTheme,
-      routerConfig: goRouter,
+      routeInformationParser: goRouter.routeInformationParser,
+      routerDelegate: goRouter.routerDelegate,
+      routeInformationProvider: goRouter.routeInformationProvider,
       debugShowCheckedModeBanner: false,
     );
   }
