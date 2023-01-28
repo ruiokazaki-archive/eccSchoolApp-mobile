@@ -1,5 +1,7 @@
 import 'package:ecc_school_app_mobile/helpers/utils/open_url.dart';
 import 'package:ecc_school_app_mobile/providers/auth_provider.dart';
+import 'package:ecc_school_app_mobile/routes/app_router.dart';
+import 'package:ecc_school_app_mobile/routes/routes.dart';
 import 'package:ecc_school_app_mobile/views/widgets/sign_in/wave_clipper1.dart';
 import 'package:ecc_school_app_mobile/views/widgets/sign_in/wave_clipper2.dart';
 import 'package:ecc_school_app_mobile/views/widgets/sign_in/wave_clipper3.dart';
@@ -7,7 +9,6 @@ import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:flutter_hooks/flutter_hooks.dart';
 import 'package:hooks_riverpod/hooks_riverpod.dart';
-import 'package:ecc_school_app_mobile/routes/routes.dart' as routes;
 
 class SignInScreen extends HookConsumerWidget {
   const SignInScreen({super.key});
@@ -149,7 +150,7 @@ class SignInScreen extends HookConsumerWidget {
                       keyboardType: TextInputType.number,
                       inputFormatters: [FilteringTextInputFormatter.digitsOnly],
                       onFieldSubmitted: (_) => onSubmitHandler(
-                        () => const routes.HomeRoute().go(context),
+                        () => AppRouter.pushNamed(Routes.SignInRoute),
                       ),
                       decoration: InputDecoration(
                         labelText: 'Student number',
@@ -182,7 +183,8 @@ class SignInScreen extends HookConsumerWidget {
                       keyboardType: TextInputType.number,
                       inputFormatters: [FilteringTextInputFormatter.digitsOnly],
                       onFieldSubmitted: (_) => onSubmitHandler(
-                          () => const routes.HomeRoute().go(context)),
+                        () => AppRouter.pushNamed(Routes.SignInRoute),
+                      ),
                       obscureText: isUnVisible.value,
                       decoration: InputDecoration(
                         labelText: 'Password',
@@ -236,7 +238,7 @@ class SignInScreen extends HookConsumerWidget {
                         ),
                       ),
                       onPressed: () => onSubmitHandler(
-                        () => const routes.HomeRoute().go(context),
+                        () => AppRouter.pushNamed(Routes.SignInRoute),
                       ),
                     ),
                   ),

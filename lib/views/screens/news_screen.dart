@@ -1,9 +1,10 @@
 import 'package:ecc_school_app_mobile/helpers/utils/news_colors_generator.dart';
 import 'package:ecc_school_app_mobile/providers/news_provider.dart';
+import 'package:ecc_school_app_mobile/routes/app_router.dart';
+import 'package:ecc_school_app_mobile/routes/routes.dart';
 import 'package:ecc_school_app_mobile/views/widgets/reuse/layout.dart';
 import 'package:flutter/material.dart';
 import 'package:hooks_riverpod/hooks_riverpod.dart';
-import 'package:ecc_school_app_mobile/routes/routes.dart' as routes;
 
 class NewsScreen extends HookConsumerWidget {
   const NewsScreen({Key? key}) : super(key: key);
@@ -23,7 +24,10 @@ class NewsScreen extends HookConsumerWidget {
               foregroundColor: Colors.black87,
               backgroundColor: Colors.white,
             ),
-            onPressed: () => routes.NewsDetailRoute(news[index].id).go(context),
+            onPressed: () => AppRouter.pushNamed(
+              Routes.NewsDetailRoute,
+              args: {news[index].id},
+            ),
             child: Container(
               padding: const EdgeInsets.symmetric(vertical: 8),
               child: Row(
