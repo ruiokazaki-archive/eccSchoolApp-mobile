@@ -1,5 +1,5 @@
 import 'package:ecc_school_app_mobile/constants/theme.dart';
-import 'package:ecc_school_app_mobile/routes/routes.dart';
+import 'package:ecc_school_app_mobile/routes/app_router.dart';
 import 'package:flutter/material.dart';
 
 class App extends StatelessWidget {
@@ -7,13 +7,13 @@ class App extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return MaterialApp.router(
+    return MaterialApp(
       title: 'ECC School App',
       theme: originalTheme,
-      routeInformationParser: goRouter.routeInformationParser,
-      routerDelegate: goRouter.routerDelegate,
-      routeInformationProvider: goRouter.routeInformationProvider,
       debugShowCheckedModeBanner: false,
+      initialRoute: AppRouter.initialRoute,
+      onGenerateRoute: AppRouter.generateRoute,
+      navigatorKey: AppRouter.navigatorKey,
     );
   }
 }

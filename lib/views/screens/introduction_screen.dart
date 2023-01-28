@@ -1,3 +1,5 @@
+import 'package:ecc_school_app_mobile/routes/app_router.dart';
+import 'package:ecc_school_app_mobile/routes/routes.dart';
 import 'package:ecc_school_app_mobile/views/widgets/introduction/force_view.dart';
 import 'package:ecc_school_app_mobile/views/widgets/introduction/third_view.dart';
 import 'package:ecc_school_app_mobile/views/widgets/introduction/center_next_button.dart';
@@ -6,7 +8,6 @@ import 'package:ecc_school_app_mobile/views/widgets/introduction/first_view.dart
 import 'package:ecc_school_app_mobile/views/widgets/introduction/top_back_skip_view.dart';
 import 'package:ecc_school_app_mobile/views/widgets/introduction/fifth_view.dart';
 import 'package:flutter/material.dart';
-import 'package:ecc_school_app_mobile/routes/routes.dart' as routes;
 
 class IntroductionScreen extends StatefulWidget {
   const IntroductionScreen({Key? key}) : super(key: key);
@@ -111,6 +112,6 @@ class _IntroductionScreenState extends State<IntroductionScreen>
   }
 
   void _signUpClick() {
-    const routes.SignInRoute().go(context);
+    AppRouter.pushNamed(Routes.SignInRoute);
   }
 }
