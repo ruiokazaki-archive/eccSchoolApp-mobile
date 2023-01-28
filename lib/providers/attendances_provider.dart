@@ -4,11 +4,11 @@ import 'package:ecc_school_app_mobile/services/repositories/attendances_reposito
 import 'package:hooks_riverpod/hooks_riverpod.dart';
 
 final attendancesNotifierProvider =
-    StateNotifierProvider<AttendancesNotifier, List<Attendance>>(
+    StateNotifierProvider<AttendancesNotifier, AsyncValue<List<Attendance>>>(
         (ref) => AttendancesNotifier(ref));
 
-class AttendancesNotifier extends StateNotifier<List<Attendance>> {
-  AttendancesNotifier(this.ref) : super([]) {
+class AttendancesNotifier extends StateNotifier<AsyncValue<List<Attendance>>> {
+  AttendancesNotifier(this.ref) : super(const AsyncValue.loading()) {
     getAttendances();
   }
 
@@ -21,6 +21,6 @@ class AttendancesNotifier extends StateNotifier<List<Attendance>> {
     if (userAuth == null) return;
 
     final attendances = await attendanceRepository.getAttendances(userAuth);
-    state = attendances;
+    state = AsyncData(attendances);
   }
 }
