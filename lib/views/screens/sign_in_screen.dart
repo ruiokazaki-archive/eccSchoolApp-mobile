@@ -150,7 +150,7 @@ class SignInScreen extends HookConsumerWidget {
                       keyboardType: TextInputType.number,
                       inputFormatters: [FilteringTextInputFormatter.digitsOnly],
                       onFieldSubmitted: (_) => onSubmitHandler(
-                        () => AppRouter.pushNamed(Routes.SignInRoute),
+                        () => AppRouter.pushNamed(Routes.HomeRoute),
                       ),
                       decoration: InputDecoration(
                         labelText: 'Student number',
@@ -183,7 +183,7 @@ class SignInScreen extends HookConsumerWidget {
                       keyboardType: TextInputType.number,
                       inputFormatters: [FilteringTextInputFormatter.digitsOnly],
                       onFieldSubmitted: (_) => onSubmitHandler(
-                        () => AppRouter.pushNamed(Routes.SignInRoute),
+                        () => AppRouter.pushNamed(Routes.HomeRoute),
                       ),
                       obscureText: isUnVisible.value,
                       decoration: InputDecoration(
@@ -238,7 +238,7 @@ class SignInScreen extends HookConsumerWidget {
                         ),
                       ),
                       onPressed: () => onSubmitHandler(
-                        () => AppRouter.pushNamed(Routes.SignInRoute),
+                        () => AppRouter.popUntil(Routes.HomeRoute),
                       ),
                     ),
                   ),
