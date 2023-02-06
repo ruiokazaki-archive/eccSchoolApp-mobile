@@ -1,5 +1,6 @@
 import 'package:ecc_school_app_mobile/views/screens/attendance_screen.dart';
 import 'package:ecc_school_app_mobile/views/screens/calendar_screen.dart';
+import 'package:ecc_school_app_mobile/views/screens/home_screen.dart';
 import 'package:ecc_school_app_mobile/views/screens/introduction_screen.dart';
 import 'package:ecc_school_app_mobile/views/screens/news_detail_screen.dart';
 import 'package:ecc_school_app_mobile/views/screens/news_screen.dart';
@@ -39,6 +40,11 @@ class AppRouter {
           settings: const RouteSettings(name: Routes.SignInRoute),
         );
 
+      case Routes.HomeRoute:
+        return MaterialPageRoute<dynamic>(
+          builder: (_) => const HomeScreen(),
+          settings: const RouteSettings(name: Routes.HomeRoute),
+        );
       case Routes.AttendanceRoute:
         return MaterialPageRoute<dynamic>(
           builder: (_) => const AttendanceScreen(),

@@ -27,56 +27,56 @@ ClipPath drawer(context) {
                     icon: Icons.home,
                     title: "Home",
                     onTap: () {
-                      AppRouter.pushNamed(Routes.HomeRoute);
+                      AppRouter.popUntil(Routes.HomeRoute);
                     }),
                 _buildDivider(),
                 _buildRow(
                     icon: Icons.home,
                     title: "Home",
                     onTap: () {
-                      AppRouter.pushNamed(Routes.HomeRoute);
+                      AppRouter.popUntil(Routes.HomeRoute);
                     }),
                 _buildDivider(),
                 _buildRow(
                     icon: Icons.home,
                     title: "Home",
                     onTap: () {
-                      AppRouter.pushNamed(Routes.HomeRoute);
+                      AppRouter.popUntil(Routes.HomeRoute);
                     }),
                 _buildDivider(),
                 _buildRow(
                     icon: Icons.home,
                     title: "Home",
                     onTap: () {
-                      AppRouter.pushNamed(Routes.HomeRoute);
+                      AppRouter.popUntil(Routes.HomeRoute);
                     }),
                 _buildDivider(),
                 _buildRow(
                     icon: Icons.home,
                     title: "Home",
                     onTap: () {
-                      AppRouter.pushNamed(Routes.HomeRoute);
+                      AppRouter.popUntil(Routes.HomeRoute);
                     }),
                 _buildDivider(),
                 _buildRow(
                     icon: Icons.home,
                     title: "Home",
                     onTap: () {
-                      AppRouter.pushNamed(Routes.HomeRoute);
+                      AppRouter.popUntil(Routes.HomeRoute);
                     }),
                 _buildDivider(),
                 _buildRow(
                     icon: Icons.home,
                     title: "Home",
                     onTap: () {
-                      AppRouter.pushNamed(Routes.HomeRoute);
+                      AppRouter.popUntil(Routes.HomeRoute);
                     }),
                 _buildDivider(),
                 _buildRow(
                     icon: Icons.home,
                     title: "Home",
                     onTap: () {
-                      AppRouter.pushNamed(Routes.HomeRoute);
+                      AppRouter.popUntil(Routes.HomeRoute);
                     }),
                 _buildDivider(),
               ],

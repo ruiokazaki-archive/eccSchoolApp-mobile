@@ -1,3 +1,5 @@
+import 'package:ecc_school_app_mobile/routes/app_router.dart';
+import 'package:ecc_school_app_mobile/routes/routes.dart';
 import 'package:flutter/material.dart';
 
 Widget bottomNavigation(BuildContext context) {
@@ -31,7 +33,7 @@ Widget bottomNavigation(BuildContext context) {
       scrollDirection: Axis.horizontal,
       padding: EdgeInsets.symmetric(horizontal: size.width * .024),
       itemBuilder: (context, index) => InkWell(
-        onTap: () {},
+        onTap: () => AppRouter.popUntil(Routes.HomeRoute),
         splashColor: Colors.transparent,
         highlightColor: Colors.transparent,
         child: Column(
