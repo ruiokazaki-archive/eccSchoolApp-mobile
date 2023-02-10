@@ -8,8 +8,6 @@ import 'package:ecc_school_app_mobile/views/screens/sign_in_screen.dart';
 import 'package:ecc_school_app_mobile/views/screens/timetable_screen.dart';
 import 'package:flutter/material.dart';
 
-import 'package:ecc_school_app_mobile/views/screens/app_startup_screen.dart';
-
 import 'routes.dart';
 
 @immutable
@@ -19,16 +17,10 @@ class AppRouter {
   static final GlobalKey<NavigatorState> navigatorKey =
       GlobalKey<NavigatorState>();
 
-  static const String initialRoute = Routes.AppStartupRoute;
+  static const String initialRoute = Routes.HomeRoute;
 
   static Route<dynamic>? generateRoute(RouteSettings settings, {dynamic args}) {
     switch (settings.name) {
-      case Routes.AppStartupRoute:
-        return MaterialPageRoute<dynamic>(
-          builder: (_) => const AppStartupScreen(),
-          settings: const RouteSettings(name: Routes.AppStartupRoute),
-        );
-
       case Routes.IntroductionRoute:
         return MaterialPageRoute<dynamic>(
           builder: (_) => const IntroductionScreen(),
