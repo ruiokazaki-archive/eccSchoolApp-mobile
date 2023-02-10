@@ -19,7 +19,7 @@ class AppRouter {
 
   static const String initialRoute = Routes.HomeRoute;
 
-  static Route<dynamic>? generateRoute(RouteSettings settings, {dynamic args}) {
+  static Route<dynamic>? generateRoute(RouteSettings settings) {
     switch (settings.name) {
       case Routes.IntroductionRoute:
         return MaterialPageRoute<dynamic>(
@@ -59,7 +59,8 @@ class AppRouter {
         );
       case Routes.NewsDetailRoute:
         return MaterialPageRoute<dynamic>(
-          builder: (_) => NewsDetailScreen(args),
+          builder: (_) =>
+              NewsDetailScreen(newsId: settings.arguments as String),
           settings: const RouteSettings(name: Routes.NewsDetailRoute),
         );
 

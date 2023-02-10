@@ -8,7 +8,10 @@ import 'package:hooks_riverpod/hooks_riverpod.dart';
 
 class NewsDetailScreen extends HookConsumerWidget {
   final String newsId;
-  const NewsDetailScreen(this.newsId, {Key? key}) : super(key: key);
+  const NewsDetailScreen({
+    Key? key,
+    required this.newsId,
+  }) : super(key: key);
 
   @override
   Widget build(BuildContext context, WidgetRef ref) {

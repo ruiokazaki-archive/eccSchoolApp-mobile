@@ -24,10 +24,12 @@ class NewsScreen extends HookConsumerWidget {
               foregroundColor: Colors.black87,
               backgroundColor: Colors.white,
             ),
-            onPressed: () => AppRouter.pushNamed(
-              Routes.NewsDetailRoute,
-              args: {news[index].id},
-            ),
+            onPressed: () => {
+              AppRouter.pushNamed(
+                Routes.NewsDetailRoute,
+                args: news[index].id,
+              )
+            },
             child: Container(
               padding: const EdgeInsets.symmetric(vertical: 8),
               child: Row(
