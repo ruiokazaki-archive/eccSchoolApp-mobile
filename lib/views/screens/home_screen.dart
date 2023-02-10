@@ -2,6 +2,7 @@ import 'package:ecc_school_app_mobile/helpers/utils/open_url.dart';
 import 'package:ecc_school_app_mobile/providers/auth_provider.dart';
 import 'package:ecc_school_app_mobile/routes/app_router.dart';
 import 'package:ecc_school_app_mobile/routes/routes.dart';
+import 'package:ecc_school_app_mobile/views/screens/introduction_screen.dart';
 import 'package:ecc_school_app_mobile/views/widgets/home/wrap_item.dart';
 import 'package:ecc_school_app_mobile/views/widgets/reuse/layout.dart';
 import 'package:flutter/material.dart';
@@ -12,6 +13,12 @@ class HomeScreen extends ConsumerWidget {
 
   @override
   Widget build(BuildContext context, WidgetRef ref) {
+    final userAuth = ref.watch(authNotifierProvider);
+
+    if (userAuth == null) {
+      return const IntroductionScreen();
+    }
+
     return layout(
       pageTitle: 'Home',
       context: context,
