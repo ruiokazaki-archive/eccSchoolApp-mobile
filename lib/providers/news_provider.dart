@@ -4,10 +4,11 @@ import 'package:ecc_school_app_mobile/services/repositories/news_repository.dart
 import 'package:hooks_riverpod/hooks_riverpod.dart';
 
 final newsNotifierProvider =
-    StateNotifierProvider<NewsNotifier, List<News>>((ref) => NewsNotifier(ref));
+    StateNotifierProvider<NewsNotifier, AsyncValue<List<News>>>(
+        (ref) => NewsNotifier(ref));
 
-class NewsNotifier extends StateNotifier<List<News>> {
-  NewsNotifier(this.ref) : super([]) {
+class NewsNotifier extends StateNotifier<AsyncValue<List<News>>> {
+  NewsNotifier(this.ref) : super(const AsyncValue.loading()) {
     getNews();
   }
 
@@ -20,7 +21,7 @@ class NewsNotifier extends StateNotifier<List<News>> {
     if (userAuth == null) return;
 
     final news = await newsRepository.getNews(userAuth);
-    state = news;
+    state = AsyncData(news);
   }
 }
 
