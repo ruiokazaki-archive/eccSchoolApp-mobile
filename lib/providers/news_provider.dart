@@ -25,11 +25,11 @@ class NewsNotifier extends StateNotifier<List<News>> {
 }
 
 final newsDetailNotifierProvider =
-    StateNotifierProvider<NewsDetailNotifier, List<NewsDetail>>(
+    StateNotifierProvider<NewsDetailNotifier, AsyncValue<List<NewsDetail>>>(
         (ref) => NewsDetailNotifier(ref));
 
-class NewsDetailNotifier extends StateNotifier<List<NewsDetail>> {
-  NewsDetailNotifier(this.ref) : super([]);
+class NewsDetailNotifier extends StateNotifier<AsyncValue<List<NewsDetail>>> {
+  NewsDetailNotifier(this.ref) : super(const AsyncValue.loading());
 
   final newsRepository = NewsRepository();
   final Ref ref;
@@ -39,7 +39,9 @@ class NewsDetailNotifier extends StateNotifier<List<NewsDetail>> {
 
     if (userAuth == null) return;
 
+    state = const AsyncValue.loading();
+
     final news = await newsRepository.getNewsDetail(userAuth, newsId);
-    state = news;
+    state = AsyncData(news);
   }
 }
