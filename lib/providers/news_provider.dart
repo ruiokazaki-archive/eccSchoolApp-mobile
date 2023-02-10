@@ -39,6 +39,8 @@ class NewsDetailNotifier extends StateNotifier<AsyncValue<List<NewsDetail>>> {
 
     if (userAuth == null) return;
 
+    state = const AsyncValue.loading();
+
     final news = await newsRepository.getNewsDetail(userAuth, newsId);
     state = AsyncData(news);
   }

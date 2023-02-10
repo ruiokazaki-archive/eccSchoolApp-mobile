@@ -3,7 +3,6 @@ import 'package:ecc_school_app_mobile/providers/news_provider.dart';
 import 'package:ecc_school_app_mobile/views/widgets/reuse/layout.dart';
 import 'package:ecc_school_app_mobile/views/widgets/reuse/loader.dart';
 import 'package:flutter/material.dart';
-import 'package:flutter_hooks/flutter_hooks.dart';
 import 'package:flutter_html/flutter_html.dart';
 import 'package:hooks_riverpod/hooks_riverpod.dart';
 
@@ -18,10 +17,7 @@ class NewsDetailScreen extends HookConsumerWidget {
   Widget build(BuildContext context, WidgetRef ref) {
     final asyncValue = ref.watch(newsDetailNotifierProvider);
 
-    useEffect(() {
-      ref.read(newsDetailNotifierProvider.notifier).getNewsDetail(newsId);
-      return null;
-    }, [newsId]);
+    ref.read(newsDetailNotifierProvider.notifier).getNewsDetail(newsId);
 
     return layout(
       context: context,
