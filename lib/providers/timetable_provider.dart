@@ -4,11 +4,13 @@ import 'package:ecc_school_app_mobile/services/repositories/timetable_repository
 import 'package:hooks_riverpod/hooks_riverpod.dart';
 
 final timetableNotifierProvider =
-    StateNotifierProvider<TimetableNotifier, List<Timetable>>(
+    StateNotifierProvider<TimetableNotifier, AsyncValue<List<Timetable>>>(
         (ref) => TimetableNotifier(ref));
 
-class TimetableNotifier extends StateNotifier<List<Timetable>> {
-  TimetableNotifier(this.ref) : super([]);
+class TimetableNotifier extends StateNotifier<AsyncValue<List<Timetable>>> {
+  TimetableNotifier(this.ref) : super(const AsyncValue.loading()) {
+    getTimetables();
+  }
 
   final timetableRepository = TimetableRepository();
   final Ref ref;
@@ -27,6 +29,6 @@ class TimetableNotifier extends StateNotifier<List<Timetable>> {
 
     final timetables = await Future.wait(timetablesFuture);
 
-    state = timetables;
+    state = AsyncData(timetables);
   }
 }
