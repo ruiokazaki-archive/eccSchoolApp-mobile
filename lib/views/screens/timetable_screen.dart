@@ -1,9 +1,28 @@
+import 'package:ecc_school_app_mobile/constants/timetable_type_constants.dart';
+import 'package:ecc_school_app_mobile/models/timetable/timetable_model.dart';
 import 'package:ecc_school_app_mobile/providers/attendances_provider.dart';
 import 'package:ecc_school_app_mobile/providers/timetable_provider.dart';
 import 'package:ecc_school_app_mobile/views/widgets/reuse/async_value_layout.dart';
 import 'package:ecc_school_app_mobile/views/widgets/reuse/layout.dart';
+import 'package:ecc_school_app_mobile/views/widgets/timetable/build_table_header.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter_hooks/flutter_hooks.dart';
 import 'package:hooks_riverpod/hooks_riverpod.dart';
+
+Subject getSubjectByPeriod(
+  Timetable timetable,
+  int period,
+) {
+  return timetable.timetable.firstWhere(
+    (t) => t.period == '$period限',
+    orElse: () => const Subject(
+      period: "1限",
+      subjectTitle: "",
+      classroom: "",
+      teacher: "",
+    ),
+  );
+}
 
 class TimetableScreen extends HookConsumerWidget {
   const TimetableScreen({Key? key}) : super(key: key);
@@ -13,21 +32,99 @@ class TimetableScreen extends HookConsumerWidget {
     final timetablesAsyncValue = ref.watch(timetableNotifierProvider);
     final attendancesAsyncValue = ref.watch(attendancesNotifierProvider);
 
+    final timetableTypeState = useState(TimetableTypeConstants.LectureScreen);
+
     return layout(
       pageTitle: '時間割',
       context: context,
       body: SingleChildScrollView(
-        child: asyncValueLayout(
-          context: context,
-          asyncValue: timetablesAsyncValue,
-          builder: (timetables) => asyncValueLayout(
+        child: Padding(
+          padding: const EdgeInsets.symmetric(horizontal: 8),
+          child: asyncValueLayout(
             context: context,
-            asyncValue: attendancesAsyncValue,
-            builder: (attendances) => Column(
-              children: [
-                Text(timetables.toString()),
-                Text(attendances.toString()),
-              ],
+            asyncValue: timetablesAsyncValue,
+            builder: (timetables) => asyncValueLayout(
+              context: context,
+              asyncValue: attendancesAsyncValue,
+              builder: (attendances) => Column(
+                children: [
+                  // test
+                  // for (var timetable in timetables)
+                  //   SizedBox(
+                  //     height: MediaQuery.of(context).size.height * .13,
+                  //     child: Center(
+                  //       child: Text(
+                  //         getSubjectByPeriod(timetable, 1).subjectTitle,
+                  //       ),
+                  //     ),
+                  //   ),
+                  // test end
+
+                  SizedBox(
+                    width: double.infinity,
+                    child: Table(
+                      children: [
+                        buildTableHeader(context),
+                        for (int index = 0; index < 5; index++)
+                          TableRow(
+                            children: [
+                              SizedBox(
+                                height:
+                                    MediaQuery.of(context).size.height * .13,
+                                child: Center(
+                                  child: Container(
+                                    decoration: const BoxDecoration(),
+                                    width: double.infinity,
+                                    padding:
+                                        const EdgeInsets.symmetric(vertical: 8),
+                                    child: Column(
+                                      mainAxisAlignment:
+                                          MainAxisAlignment.center,
+                                      crossAxisAlignment:
+                                          CrossAxisAlignment.center,
+                                      children: [
+                                        Text(
+                                          '${index + 1}限',
+                                          style: const TextStyle(
+                                            fontSize: 14,
+                                          ),
+                                        ),
+                                        const SizedBox(height: 4),
+                                        const Text(
+                                          '09:15 ~\n10:45',
+                                          style: TextStyle(
+                                            fontSize: 12,
+                                            color: Colors.black45,
+                                          ),
+                                        ),
+                                      ],
+                                    ),
+                                  ),
+                                ),
+                              ),
+                              ...[
+                                for (var timetable in timetables)
+                                  SizedBox(
+                                    height: MediaQuery.of(context).size.height *
+                                        .13,
+                                    child: Center(
+                                      child: Text(
+                                        getSubjectByPeriod(timetable, index + 1)
+                                            .subjectTitle,
+                                        style: const TextStyle(
+                                          fontSize: 12,
+                                        ),
+                                      ),
+                                    ),
+                                  ),
+                              ]
+                            ],
+                          ),
+                      ],
+                    ),
+                  )
+                ],
+              ),
             ),
           ),
         ),
