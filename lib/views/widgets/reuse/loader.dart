@@ -1,8 +1,8 @@
 import 'package:flutter/material.dart';
 
-Widget loader(BuildContext context) {
+Widget loader(BuildContext context, {double? height}) {
   return SizedBox(
-    height: MediaQuery.of(context).size.height,
+    height: height ?? MediaQuery.of(context).size.height,
     child: const Center(child: CircularProgressIndicator()),
   );
 }

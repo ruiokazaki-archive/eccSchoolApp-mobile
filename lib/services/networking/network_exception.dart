@@ -1,6 +1,6 @@
 // ignore_for_file: non_constant_identifier_names
 import 'package:dio/dio.dart';
-import 'package:ecc_school_app_mobile/helpers/utils/exception_constants.dart';
+import 'package:ecc_school_app_mobile/constants/exception_constants.dart';
 import 'package:freezed_annotation/freezed_annotation.dart';
 
 part 'network_exception.freezed.dart';
