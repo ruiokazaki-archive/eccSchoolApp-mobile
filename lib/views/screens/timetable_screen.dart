@@ -45,7 +45,7 @@ class TimetableScreen extends HookConsumerWidget {
 
     DateTime date = DateTime.now();
 
-    final timetableTypeState = useState(TimetableTypeConstants.AttendingScreen);
+    final timetableTypeState = useState(TimetableTypeConstants.LectureScreen);
 
     Widget buildTimetable() {
       if (timetablesAsyncValue is AsyncError ||
@@ -108,7 +108,9 @@ class TimetableScreen extends HookConsumerWidget {
                             child: ColoredBox(
                               color:
                                   date.getWeekdayJaName() == timetable.weekday
-                                      ? Colors.blueAccent.withOpacity(.05)
+                                      ? Theme.of(context)
+                                          .primaryColor
+                                          .withOpacity(.05)
                                       : Colors.transparent,
                               child: Padding(
                                 padding: const EdgeInsets.symmetric(
@@ -171,9 +173,9 @@ class TimetableScreen extends HookConsumerWidget {
                                                   ),
                                                 )
                                                 .rate,
-                                        style: const TextStyle(
+                                        style: TextStyle(
                                           fontSize: 10,
-                                          color: Colors.blueAccent,
+                                          color: Theme.of(context).primaryColor,
                                           fontWeight: FontWeight.bold,
                                         ),
                                       ),
@@ -196,11 +198,46 @@ class TimetableScreen extends HookConsumerWidget {
     return layout(
       pageTitle: '時間割',
       context: context,
-      body: SingleChildScrollView(
-        child: Padding(
-          padding: const EdgeInsets.symmetric(horizontal: 8),
-          child: buildTimetable(),
-        ),
+      body: Stack(
+        alignment: Alignment.center,
+        children: [
+          SingleChildScrollView(
+            child: Padding(
+              padding: const EdgeInsets.symmetric(horizontal: 8),
+              child: buildTimetable(),
+            ),
+          ),
+          Positioned(
+            bottom: 0,
+            child: Container(
+              width: 160,
+              height: 40,
+              decoration: BoxDecoration(
+                color: Theme.of(context).primaryColor,
+                borderRadius: const BorderRadius.all(
+                  Radius.circular(8),
+                ),
+              ),
+              child: TextButton(
+                onPressed: () {
+                  timetableTypeState.value = timetableTypeState.value ==
+                          TimetableTypeConstants.LectureScreen
+                      ? TimetableTypeConstants.AttendingScreen
+                      : TimetableTypeConstants.LectureScreen;
+                },
+                child: Text(
+                  timetableTypeState.value ==
+                          TimetableTypeConstants.LectureScreen
+                      ? "出席情報を表示"
+                      : "出席情報を非表示",
+                  style: const TextStyle(
+                    color: Colors.white,
+                  ),
+                ),
+              ),
+            ),
+          ),
+        ],
       ),
     );
   }
