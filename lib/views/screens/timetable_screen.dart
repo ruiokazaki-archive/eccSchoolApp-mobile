@@ -10,10 +10,10 @@ import 'package:flutter_hooks/flutter_hooks.dart';
 import 'package:hooks_riverpod/hooks_riverpod.dart';
 
 Subject getSubjectByPeriod(
-  Timetable timetable,
+  List<Subject> subjects,
   int period,
 ) {
-  return timetable.timetable.firstWhere(
+  return subjects.firstWhere(
     (t) => t.period == '$period限',
     orElse: () => const Subject(
       period: "1限",
@@ -48,21 +48,13 @@ class TimetableScreen extends HookConsumerWidget {
               asyncValue: attendancesAsyncValue,
               builder: (attendances) => Column(
                 children: [
-                  // test
-                  // for (var timetable in timetables)
-                  //   SizedBox(
-                  //     height: MediaQuery.of(context).size.height * .13,
-                  //     child: Center(
-                  //       child: Text(
-                  //         getSubjectByPeriod(timetable, 1).subjectTitle,
-                  //       ),
-                  //     ),
-                  //   ),
-                  // test end
-
                   SizedBox(
                     width: double.infinity,
                     child: Table(
+                      border: TableBorder.all(
+                        color: Colors.black12,
+                        width: 1,
+                      ),
                       children: [
                         buildTableHeader(context),
                         for (int index = 0; index < 5; index++)
@@ -107,13 +99,26 @@ class TimetableScreen extends HookConsumerWidget {
                                   SizedBox(
                                     height: MediaQuery.of(context).size.height *
                                         .13,
-                                    child: Center(
-                                      child: Text(
-                                        getSubjectByPeriod(timetable, index + 1)
-                                            .subjectTitle,
-                                        style: const TextStyle(
-                                          fontSize: 12,
-                                        ),
+                                    child: Padding(
+                                      padding: const EdgeInsets.symmetric(
+                                        horizontal: 4,
+                                      ),
+                                      child: Column(
+                                        crossAxisAlignment:
+                                            CrossAxisAlignment.center,
+                                        mainAxisAlignment:
+                                            MainAxisAlignment.center,
+                                        children: [
+                                          Text(
+                                            getSubjectByPeriod(
+                                              timetable.subjects,
+                                              index + 1,
+                                            ).subjectTitle,
+                                            style: const TextStyle(
+                                              fontSize: 11,
+                                            ),
+                                          ),
+                                        ],
                                       ),
                                     ),
                                   ),
