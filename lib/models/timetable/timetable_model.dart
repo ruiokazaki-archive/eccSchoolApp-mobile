@@ -22,7 +22,7 @@ class Timetable with _$Timetable {
   const factory Timetable({
     required String date,
     required String weekday,
-    required List<Subject> subjects,
+    required List<Subject> timetable,
   }) = _Timetable;
 
   factory Timetable.fromJson(JSON json) => _$TimetableFromJson(json);

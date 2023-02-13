@@ -24,7 +24,7 @@ Map<String, dynamic> _$$_SubjectToJson(_$_Subject instance) =>
 _$_Timetable _$$_TimetableFromJson(Map<String, dynamic> json) => _$_Timetable(
       date: json['date'] as String,
       weekday: json['weekday'] as String,
-      subjects: (json['subjects'] as List<dynamic>)
+      timetable: (json['timetable'] as List<dynamic>)
           .map((e) => Subject.fromJson(e as Map<String, dynamic>))
           .toList(),
     );
@@ -33,5 +33,5 @@ Map<String, dynamic> _$$_TimetableToJson(_$_Timetable instance) =>
     <String, dynamic>{
       'date': instance.date,
       'weekday': instance.weekday,
-      'subjects': instance.subjects.map((e) => e.toJson()).toList(),
+      'timetable': instance.timetable.map((e) => e.toJson()).toList(),
     };

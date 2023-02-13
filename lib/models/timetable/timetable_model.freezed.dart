@@ -214,7 +214,7 @@ Timetable _$TimetableFromJson(Map<String, dynamic> json) {
 mixin _$Timetable {
   String get date => throw _privateConstructorUsedError;
   String get weekday => throw _privateConstructorUsedError;
-  List<Subject> get subjects => throw _privateConstructorUsedError;
+  List<Subject> get timetable => throw _privateConstructorUsedError;
 
   Map<String, dynamic> toJson() => throw _privateConstructorUsedError;
   @JsonKey(ignore: true)
@@ -227,7 +227,7 @@ abstract class $TimetableCopyWith<$Res> {
   factory $TimetableCopyWith(Timetable value, $Res Function(Timetable) then) =
       _$TimetableCopyWithImpl<$Res, Timetable>;
   @useResult
-  $Res call({String date, String weekday, List<Subject> subjects});
+  $Res call({String date, String weekday, List<Subject> timetable});
 }
 
 /// @nodoc
@@ -245,7 +245,7 @@ class _$TimetableCopyWithImpl<$Res, $Val extends Timetable>
   $Res call({
     Object? date = null,
     Object? weekday = null,
-    Object? subjects = null,
+    Object? timetable = null,
   }) {
     return _then(_value.copyWith(
       date: null == date
@@ -256,9 +256,9 @@ class _$TimetableCopyWithImpl<$Res, $Val extends Timetable>
           ? _value.weekday
           : weekday // ignore: cast_nullable_to_non_nullable
               as String,
-      subjects: null == subjects
-          ? _value.subjects
-          : subjects // ignore: cast_nullable_to_non_nullable
+      timetable: null == timetable
+          ? _value.timetable
+          : timetable // ignore: cast_nullable_to_non_nullable
               as List<Subject>,
     ) as $Val);
   }
@@ -271,7 +271,7 @@ abstract class _$$_TimetableCopyWith<$Res> implements $TimetableCopyWith<$Res> {
       __$$_TimetableCopyWithImpl<$Res>;
   @override
   @useResult
-  $Res call({String date, String weekday, List<Subject> subjects});
+  $Res call({String date, String weekday, List<Subject> timetable});
 }
 
 /// @nodoc
@@ -287,7 +287,7 @@ class __$$_TimetableCopyWithImpl<$Res>
   $Res call({
     Object? date = null,
     Object? weekday = null,
-    Object? subjects = null,
+    Object? timetable = null,
   }) {
     return _then(_$_Timetable(
       date: null == date
@@ -298,9 +298,9 @@ class __$$_TimetableCopyWithImpl<$Res>
           ? _value.weekday
           : weekday // ignore: cast_nullable_to_non_nullable
               as String,
-      subjects: null == subjects
-          ? _value._subjects
-          : subjects // ignore: cast_nullable_to_non_nullable
+      timetable: null == timetable
+          ? _value._timetable
+          : timetable // ignore: cast_nullable_to_non_nullable
               as List<Subject>,
     ));
   }
@@ -313,8 +313,8 @@ class _$_Timetable implements _Timetable {
   const _$_Timetable(
       {required this.date,
       required this.weekday,
-      required final List<Subject> subjects})
-      : _subjects = subjects;
+      required final List<Subject> timetable})
+      : _timetable = timetable;
 
   factory _$_Timetable.fromJson(Map<String, dynamic> json) =>
       _$$_TimetableFromJson(json);
@@ -323,16 +323,16 @@ class _$_Timetable implements _Timetable {
   final String date;
   @override
   final String weekday;
-  final List<Subject> _subjects;
+  final List<Subject> _timetable;
   @override
-  List<Subject> get subjects {
+  List<Subject> get timetable {
     // ignore: implicit_dynamic_type
-    return EqualUnmodifiableListView(_subjects);
+    return EqualUnmodifiableListView(_timetable);
   }
 
   @override
   String toString() {
-    return 'Timetable(date: $date, weekday: $weekday, subjects: $subjects)';
+    return 'Timetable(date: $date, weekday: $weekday, timetable: $timetable)';
   }
 
   @override
@@ -342,13 +342,14 @@ class _$_Timetable implements _Timetable {
             other is _$_Timetable &&
             (identical(other.date, date) || other.date == date) &&
             (identical(other.weekday, weekday) || other.weekday == weekday) &&
-            const DeepCollectionEquality().equals(other._subjects, _subjects));
+            const DeepCollectionEquality()
+                .equals(other._timetable, _timetable));
   }
 
   @JsonKey(ignore: true)
   @override
   int get hashCode => Object.hash(runtimeType, date, weekday,
-      const DeepCollectionEquality().hash(_subjects));
+      const DeepCollectionEquality().hash(_timetable));
 
   @JsonKey(ignore: true)
   @override
@@ -368,7 +369,7 @@ abstract class _Timetable implements Timetable {
   const factory _Timetable(
       {required final String date,
       required final String weekday,
-      required final List<Subject> subjects}) = _$_Timetable;
+      required final List<Subject> timetable}) = _$_Timetable;
 
   factory _Timetable.fromJson(Map<String, dynamic> json) =
       _$_Timetable.fromJson;
@@ -378,7 +379,7 @@ abstract class _Timetable implements Timetable {
   @override
   String get weekday;
   @override
-  List<Subject> get subjects;
+  List<Subject> get timetable;
   @override
   @JsonKey(ignore: true)
   _$$_TimetableCopyWith<_$_Timetable> get copyWith =>

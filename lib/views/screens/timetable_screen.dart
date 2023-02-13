@@ -9,6 +9,14 @@ import 'package:flutter/material.dart';
 import 'package:flutter_hooks/flutter_hooks.dart';
 import 'package:hooks_riverpod/hooks_riverpod.dart';
 
+List<String> periods_time = [
+  '09:15 ~\n10:45',
+  '11:00 ~\n12:30',
+  '13:30 ~\n15:00',
+  '15:15 ~\n16:45',
+  '17:00 ~\n18:30',
+];
+
 Subject getSubjectByPeriod(
   List<Subject> subjects,
   int period,
@@ -16,7 +24,7 @@ Subject getSubjectByPeriod(
   return subjects.firstWhere(
     (t) => t.period == '$period限',
     orElse: () => const Subject(
-      period: "1限",
+      period: "",
       subjectTitle: "",
       classroom: "",
       teacher: "",
@@ -82,10 +90,10 @@ class TimetableScreen extends HookConsumerWidget {
                                           ),
                                         ),
                                         const SizedBox(height: 4),
-                                        const Text(
-                                          '09:15 ~\n10:45',
-                                          style: TextStyle(
-                                            fontSize: 12,
+                                        Text(
+                                          periods_time[index],
+                                          style: const TextStyle(
+                                            fontSize: 11,
                                             color: Colors.black45,
                                           ),
                                         ),
@@ -111,11 +119,32 @@ class TimetableScreen extends HookConsumerWidget {
                                         children: [
                                           Text(
                                             getSubjectByPeriod(
-                                              timetable.subjects,
+                                              timetable.timetable,
                                               index + 1,
                                             ).subjectTitle,
                                             style: const TextStyle(
-                                              fontSize: 11,
+                                              fontSize: 10,
+                                            ),
+                                          ),
+                                          Text(
+                                            getSubjectByPeriod(
+                                              timetable.timetable,
+                                              index + 1,
+                                            ).teacher.replaceAll("　", " "),
+                                            style: const TextStyle(
+                                              fontSize: 9,
+                                              color: Colors.black45,
+                                            ),
+                                          ),
+                                          Text(
+                                            getSubjectByPeriod(
+                                              timetable.timetable,
+                                              index + 1,
+                                            ).classroom,
+                                            style: const TextStyle(
+                                              fontSize: 10,
+                                              color: Colors.blueAccent,
+                                              fontWeight: FontWeight.bold,
                                             ),
                                           ),
                                         ],
