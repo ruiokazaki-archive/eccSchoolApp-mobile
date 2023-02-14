@@ -1,3 +1,4 @@
+import 'package:ecc_school_app_mobile/helpers/utils/open_url.dart';
 import 'package:ecc_school_app_mobile/routes/app_router.dart';
 import 'package:ecc_school_app_mobile/routes/routes.dart';
 import 'package:flutter/material.dart';
@@ -23,61 +24,113 @@ ClipPath drawer(context) {
           child: SingleChildScrollView(
             child: Column(
               children: <Widget>[
-                _buildRow(
-                    icon: Icons.home,
-                    title: "Home",
-                    onTap: () {
-                      AppRouter.popUntil(Routes.HomeRoute);
-                    }),
                 _buildDivider(),
                 _buildRow(
-                    icon: Icons.home,
-                    title: "Home",
-                    onTap: () {
-                      AppRouter.popUntil(Routes.HomeRoute);
-                    }),
+                  icon: Icons.home,
+                  title: "ホーム",
+                  onTap: () {
+                    AppRouter.popUntil(Routes.HomeRoute);
+                  },
+                ),
                 _buildDivider(),
                 _buildRow(
-                    icon: Icons.home,
-                    title: "Home",
-                    onTap: () {
-                      AppRouter.popUntil(Routes.HomeRoute);
-                    }),
+                  icon: Icons.schedule,
+                  title: "時間割",
+                  onTap: () {
+                    AppRouter.pushNamed(Routes.TimetableRoute);
+                  },
+                ),
                 _buildDivider(),
                 _buildRow(
-                    icon: Icons.home,
-                    title: "Home",
-                    onTap: () {
-                      AppRouter.popUntil(Routes.HomeRoute);
-                    }),
+                  icon: Icons.percent,
+                  title: "出席率",
+                  onTap: () {
+                    AppRouter.pushNamed(Routes.AttendanceRoute);
+                  },
+                ),
                 _buildDivider(),
                 _buildRow(
-                    icon: Icons.home,
-                    title: "Home",
-                    onTap: () {
-                      AppRouter.popUntil(Routes.HomeRoute);
-                    }),
+                  icon: Icons.notifications,
+                  title: "お知らせ",
+                  onTap: () {
+                    AppRouter.pushNamed(Routes.NewsRoute);
+                  },
+                ),
                 _buildDivider(),
                 _buildRow(
-                    icon: Icons.home,
-                    title: "Home",
-                    onTap: () {
-                      AppRouter.popUntil(Routes.HomeRoute);
-                    }),
+                  icon: Icons.calendar_month,
+                  title: "カレンダー",
+                  onTap: () {
+                    AppRouter.pushNamed(Routes.CalendarRoute);
+                  },
+                ),
                 _buildDivider(),
                 _buildRow(
-                    icon: Icons.home,
-                    title: "Home",
-                    onTap: () {
-                      AppRouter.popUntil(Routes.HomeRoute);
-                    }),
+                  icon: Icons.star_border_rounded,
+                  title: "アプリをレビューする",
+                  onTap: () {
+                    openUrl('https://forms.gle/tsXfXPJJWBsiC7aCA');
+                  },
+                ),
                 _buildDivider(),
                 _buildRow(
-                    icon: Icons.home,
-                    title: "Home",
-                    onTap: () {
-                      AppRouter.popUntil(Routes.HomeRoute);
-                    }),
+                  icon: Icons.report_gmailerrorred_rounded,
+                  title: "バグ / 要望 / その他",
+                  onTap: () {
+                    openUrl(
+                        'https://github.com/RuiOkazaki/eccSchoolApp-mobile/issues');
+                  },
+                ),
+                _buildDivider(),
+                _buildRow(
+                  icon: Icons.school,
+                  title: "公式学生アプリ",
+                  onTap: () {
+                    openUrl('https://comp-app.ecc-sv.com/app/index.php');
+                  },
+                ),
+                _buildDivider(),
+                _buildRow(
+                  icon: Icons.health_and_safety_rounded,
+                  title: "安否確認",
+                  onTap: () {
+                    openUrl('http://anpi.ecc.ac.jp/');
+                  },
+                ),
+                _buildDivider(),
+                _buildRow(
+                  icon: Icons.menu_book_rounded,
+                  title: "ハンドブック",
+                  onTap: () {
+                    openUrl(
+                        'https://comp.ecc.ac.jp/about/pdf/handbook2022.pdf');
+                  },
+                ),
+                _buildDivider(),
+                _buildRow(
+                  icon: Icons.code,
+                  title: "GitHub - web",
+                  onTap: () {
+                    openUrl('https://github.com/RuiOkazaki/eccSchoolApp-web');
+                  },
+                ),
+                _buildDivider(),
+                _buildRow(
+                  icon: Icons.code,
+                  title: "GitHub - mobile",
+                  onTap: () {
+                    openUrl(
+                        'https://github.com/RuiOkazaki/eccSchoolApp-mobile');
+                  },
+                ),
+                _buildDivider(),
+                _buildRow(
+                  icon: Icons.code,
+                  title: "GitHub - api",
+                  onTap: () {
+                    openUrl('https://github.com/yumekiti/eccSchoolApp-api');
+                  },
+                ),
                 _buildDivider(),
               ],
             ),
