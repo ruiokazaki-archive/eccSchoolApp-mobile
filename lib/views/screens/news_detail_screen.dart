@@ -34,12 +34,17 @@ class NewsDetailScreen extends HookConsumerWidget {
               tagsList: Html.tags..addAll(["attachment"]),
               customRender: {
                 "attachment": (RenderContext context, Widget child) {
-                  return ElevatedButton(
+                  return TextButton.icon(
                     onPressed: () {
-                      debugPrint(context.tree.element!.attributes["href"]!);
                       openUrl(context.tree.element!.attributes["href"]!);
                     },
-                    child: Text(context.tree.element!.innerHtml),
+                    icon: const Icon(Icons.description),
+                    label: Text(
+                      context.tree.element!.innerHtml,
+                      style: const TextStyle(
+                        fontWeight: FontWeight.bold,
+                      ),
+                    ),
                   );
                 },
               },
