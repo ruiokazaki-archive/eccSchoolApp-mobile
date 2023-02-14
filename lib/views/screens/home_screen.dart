@@ -60,10 +60,22 @@ class HomeScreen extends ConsumerWidget {
                   context: context,
                 ),
                 wrapItem(
-                  icon: Icons.link,
-                  label: "各種リンク",
+                  icon: Icons.report_gmailerrorred_rounded,
+                  label: "バグ / 要望 / その他",
+                  color: Colors.brown.withOpacity(0.8),
+                  onTapped: () {
+                    openUrl(
+                        'https://github.com/RuiOkazaki/eccSchoolApp-mobile/issues');
+                  },
+                  context: context,
+                ),
+                wrapItem(
+                  icon: Icons.star_border_rounded,
+                  label: "アプリレビュー",
                   color: Colors.purple.withOpacity(0.8),
-                  onTapped: () => openUrl('https://www.ecc-app.net/links'),
+                  onTapped: () {
+                    openUrl('https://forms.gle/tsXfXPJJWBsiC7aCA');
+                  },
                   context: context,
                 ),
                 wrapItem(
