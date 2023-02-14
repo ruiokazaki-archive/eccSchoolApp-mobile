@@ -2,7 +2,6 @@ import 'package:flutter/material.dart';
 
 AppBar appBar({
   String? title,
-  required Function openDrawer,
   required BuildContext context,
 }) {
   return AppBar(
@@ -15,40 +14,6 @@ AppBar appBar({
       mainAxisAlignment: MainAxisAlignment.start,
       crossAxisAlignment: CrossAxisAlignment.start,
       children: [
-        GestureDetector(
-          onTap: () => openDrawer(),
-          child: SizedBox(
-            height: 20,
-            width: 20,
-            child: ColoredBox(
-              color: Colors.white,
-              child: Column(
-                mainAxisAlignment: MainAxisAlignment.center,
-                crossAxisAlignment: CrossAxisAlignment.start,
-                mainAxisSize: MainAxisSize.min,
-                children: [
-                  Container(
-                    height: 4.0,
-                    width: 18.0,
-                    decoration: BoxDecoration(
-                      color: Colors.black,
-                      borderRadius: BorderRadius.circular(2.0),
-                    ),
-                  ),
-                  const SizedBox(height: 4.0),
-                  Container(
-                    height: 4.0,
-                    width: 12.0,
-                    decoration: BoxDecoration(
-                      color: Colors.black,
-                      borderRadius: BorderRadius.circular(2.0),
-                    ),
-                  ),
-                ],
-              ),
-            ),
-          ),
-        ),
         if (title != null) const SizedBox(height: 16),
         if (title != null)
           Text(
