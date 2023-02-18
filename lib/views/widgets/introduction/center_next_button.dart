@@ -57,7 +57,7 @@ class CenterNextButton extends StatelessWidget {
                     ? 1
                     : 0,
                 duration: const Duration(milliseconds: 480),
-                child: _pageView(),
+                child: _pageView(context),
               ),
             ),
           ),
@@ -74,7 +74,7 @@ class CenterNextButton extends StatelessWidget {
                   decoration: BoxDecoration(
                     borderRadius: BorderRadius.circular(
                         8 + 32 * (1 - signUpMoveAnimation.value)),
-                    color: const Color(0xff132137),
+                    color: Theme.of(context).primaryColor,
                   ),
                   child: PageTransitionSwitcher(
                     duration: const Duration(milliseconds: 480),
@@ -150,7 +150,7 @@ class CenterNextButton extends StatelessWidget {
     );
   }
 
-  Widget _pageView() {
+  Widget _pageView(BuildContext context) {
     int selectedIndex = 0;
 
     if (animationController.value >= 0.7) {
@@ -176,7 +176,7 @@ class CenterNextButton extends StatelessWidget {
                 decoration: BoxDecoration(
                   borderRadius: BorderRadius.circular(32),
                   color: selectedIndex == i
-                      ? const Color(0xff132137)
+                      ? Theme.of(context).primaryColor
                       : const Color(0xffE3E4E4),
                 ),
                 width: 10,

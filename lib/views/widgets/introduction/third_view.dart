@@ -84,9 +84,11 @@ class ThirdView extends StatelessWidget {
                 child: SlideTransition(
                   position: thirdSecondHalfAnimation,
                   child: const Text(
-                    "Care",
-                    style:
-                        TextStyle(fontSize: 26.0, fontWeight: FontWeight.bold),
+                    "欠席・遅刻回数の確認",
+                    style: TextStyle(
+                      fontSize: 26.0,
+                      fontWeight: FontWeight.bold,
+                    ),
                   ),
                 ),
               ),
@@ -94,7 +96,7 @@ class ThirdView extends StatelessWidget {
                 padding:
                     EdgeInsets.only(left: 64, right: 64, bottom: 16, top: 16),
                 child: Text(
-                  "Lorem ipsum dolor sit amet,consectetur adipiscing elit,sed do eiusmod tempor incididunt ut labore",
+                  "学校の授業の単位を確認できます。\n自分が現状どれくらい欠席しているのか確認ができます。",
                   textAlign: TextAlign.center,
                 ),
               ),
@@ -106,7 +108,7 @@ class ThirdView extends StatelessWidget {
                     constraints:
                         const BoxConstraints(maxWidth: 350, maxHeight: 250),
                     child: Image.asset(
-                      'assets/introduction/img1.png',
+                      'assets/introduction/img3.png',
                       fit: BoxFit.contain,
                     ),
                   ),

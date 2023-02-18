@@ -44,14 +44,15 @@ class _FirstViewState extends State<FirstView> {
             const Padding(
               padding: EdgeInsets.only(top: 8.0, bottom: 8.0),
               child: Text(
-                "ECC学生アプリ",
+                "ECCコンピュータ専門学校\n学生向けアプリ",
+                textAlign: TextAlign.center,
                 style: TextStyle(fontSize: 25.0, fontWeight: FontWeight.bold),
               ),
             ),
             const Padding(
               padding: EdgeInsets.only(left: 64, right: 64),
               child: Text(
-                "Lorem ipsum dolor sit amet,consectetur adipiscing elit,sed do eiusmod tempor incididunt ut labore",
+                "学校公式アプリの不満点を調査し、\n結果を元に開発された非公式アプリです",
                 textAlign: TextAlign.center,
               ),
             ),
@@ -72,7 +73,7 @@ class _FirstViewState extends State<FirstView> {
                 ),
                 decoration: BoxDecoration(
                   borderRadius: BorderRadius.circular(38.0),
-                  color: const Color(0xff132137),
+                  color: Theme.of(context).primaryColor,
                 ),
                 child: const Text(
                   "使い方を見る",
