@@ -5,7 +5,7 @@ import 'package:ecc_school_app_mobile/models/attendance/attendance_model.dart';
 import 'package:ecc_school_app_mobile/providers/attendances_provider.dart';
 import 'package:ecc_school_app_mobile/providers/timetable_provider.dart';
 import 'package:ecc_school_app_mobile/views/widgets/reuse/loader.dart';
-import 'package:ecc_school_app_mobile/views/widgets/timetable/build_table_header.dart';
+import 'package:ecc_school_app_mobile/views/widgets/timetable/table_header.dart';
 import 'package:flutter/material.dart';
 import 'package:hooks_riverpod/hooks_riverpod.dart';
 
@@ -18,7 +18,7 @@ const List<String> PERIODS_TIME = [
   '17:00 ~\n18:30',
 ];
 
-Widget buildTimetable({
+Widget timetable({
   required BuildContext context,
   required WidgetRef ref,
   required String timetableTypeStateValue,
@@ -48,7 +48,7 @@ Widget buildTimetable({
             width: 1,
           ),
           children: [
-            buildTableHeader(context),
+            tableHeader(context),
             for (int index = 0; index < 5; index++)
               TableRow(
                 children: [

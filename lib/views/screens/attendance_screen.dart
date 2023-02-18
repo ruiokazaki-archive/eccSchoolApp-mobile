@@ -1,7 +1,7 @@
 // ignore_for_file: constant_identifier_names
 
 import 'package:ecc_school_app_mobile/providers/attendances_provider.dart';
-import 'package:ecc_school_app_mobile/views/widgets/attendance/build_table.dart';
+import 'package:ecc_school_app_mobile/views/widgets/attendance/table.dart';
 import 'package:ecc_school_app_mobile/views/widgets/reuse/async_value_layout.dart';
 import 'package:ecc_school_app_mobile/views/widgets/reuse/layout.dart';
 import 'package:flutter/material.dart';
@@ -25,7 +25,7 @@ class AttendanceScreen extends HookConsumerWidget {
             asyncValue: asyncValue,
             builder: (attendances) => SingleChildScrollView(
               scrollDirection: Axis.horizontal,
-              child: buildTable(attendances, context),
+              child: table(attendances, context),
             ),
           ),
         ),

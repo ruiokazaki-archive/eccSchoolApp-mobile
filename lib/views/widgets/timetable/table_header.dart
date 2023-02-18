@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 
-TableRow buildTableHeader(BuildContext context) {
+TableRow tableHeader(BuildContext context) {
   return TableRow(
     decoration: BoxDecoration(
       color: Theme.of(context).primaryColor,

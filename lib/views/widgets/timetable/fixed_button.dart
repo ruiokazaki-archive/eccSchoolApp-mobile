@@ -1,7 +1,7 @@
 import 'package:ecc_school_app_mobile/constants/timetable_type_constants.dart';
 import 'package:flutter/material.dart';
 
-Widget buildFixedButton({
+Widget fixedButton({
   required BuildContext context,
   required ValueNotifier<String> timetableTypeState,
 }) {
