@@ -2,7 +2,7 @@ import 'package:flutter/material.dart';
 
 Color cellTextColor = Colors.black87;
 
-DataCell buildDataCell({required String data, bool? isRight}) {
+DataCell dataCell({required String data, bool? isRight}) {
   isRight ??= false;
 
   return DataCell(
