@@ -80,7 +80,7 @@ class ForceVew extends StatelessWidget {
             mainAxisAlignment: MainAxisAlignment.center,
             children: [
               const Text(
-                "force Dairy",
+                "カレンダー機能を実装",
                 style: TextStyle(fontSize: 26.0, fontWeight: FontWeight.bold),
               ),
               SlideTransition(
@@ -91,7 +91,7 @@ class ForceVew extends StatelessWidget {
                     padding: EdgeInsets.only(
                         left: 64, right: 64, top: 16, bottom: 16),
                     child: Text(
-                      "Lorem ipsum dolor sit amet,consectetur adipiscing elit,sed do eiusmod tempor incididunt ut labore",
+                      "行事予定を確認する画面を\nカレンダーにすることで、\n直感的に操作・確認することができます",
                       textAlign: TextAlign.center,
                     ),
                   ),
@@ -105,7 +105,7 @@ class ForceVew extends StatelessWidget {
                     constraints:
                         const BoxConstraints(maxWidth: 350, maxHeight: 250),
                     child: Image.asset(
-                      'assets/introduction/img1.png',
+                      'assets/introduction/img4.png',
                       fit: BoxFit.contain,
                     ),
                   ),

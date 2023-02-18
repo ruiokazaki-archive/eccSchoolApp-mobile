@@ -66,7 +66,7 @@ class FifthView extends StatelessWidget {
               SlideTransition(
                 position: fifthFirstHalfAnimation,
                 child: const Text(
-                  "fifth",
+                  "ウィジェット機能",
                   style: TextStyle(fontSize: 25.0, fontWeight: FontWeight.bold),
                 ),
               ),
@@ -74,7 +74,7 @@ class FifthView extends StatelessWidget {
                 padding:
                     EdgeInsets.only(left: 64, right: 64, top: 16, bottom: 16),
                 child: Text(
-                  "Stay organised and live stress-free with you-do app",
+                  "アプリを開かずとも時間割を確認することができます。",
                   textAlign: TextAlign.center,
                 ),
               ),
@@ -84,7 +84,7 @@ class FifthView extends StatelessWidget {
                   constraints:
                       const BoxConstraints(maxWidth: 350, maxHeight: 250),
                   child: Image.asset(
-                    'assets/introduction/img1.png',
+                    'assets/introduction/img5.png',
                     fit: BoxFit.contain,
                   ),
                 ),

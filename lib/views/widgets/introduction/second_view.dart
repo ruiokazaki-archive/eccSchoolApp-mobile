@@ -81,7 +81,7 @@ class SecondView extends StatelessWidget {
               SlideTransition(
                 position: secondAnimation,
                 child: const Text(
-                  "出席率管理システム",
+                  "授業の時間割確認",
                   style: TextStyle(fontSize: 26.0, fontWeight: FontWeight.bold),
                 ),
               ),
@@ -91,7 +91,7 @@ class SecondView extends StatelessWidget {
                   padding:
                       EdgeInsets.only(left: 64, right: 64, top: 16, bottom: 16),
                   child: Text(
-                    "Lorem ipsum dolor sit amet,consectetur adipiscing elit,sed do eiusmod tempor incididunt ut labore",
+                    "授業の時間割を確認できます。\nSICやSPICなどの変則的な授業にも対応しています。",
                     textAlign: TextAlign.center,
                   ),
                 ),
@@ -105,7 +105,7 @@ class SecondView extends StatelessWidget {
                   constraints:
                       const BoxConstraints(maxWidth: 350, maxHeight: 250),
                   child: Image.asset(
-                    'assets/introduction/img1.png',
+                    'assets/introduction/img2.png',
                     fit: BoxFit.contain,
                   ),
                 ),
