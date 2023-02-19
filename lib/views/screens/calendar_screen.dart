@@ -49,6 +49,7 @@ class CalendarScreen extends HookConsumerWidget {
     final asyncValue = ref.watch(calendarNotifierProvider);
 
     return layout(
+      selectedBottomNavigationIndex: 4,
       pageTitle: '行事予定',
       context: context,
       body: asyncValueLayout(

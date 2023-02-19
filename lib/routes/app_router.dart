@@ -34,29 +34,64 @@ class AppRouter {
         );
 
       case Routes.HomeRoute:
-        return MaterialPageRoute<dynamic>(
-          builder: (_) => const HomeScreen(),
+        return PageRouteBuilder<dynamic>(
+          transitionDuration: const Duration(milliseconds: 100),
+          pageBuilder: (_, __, ___) => const HomeScreen(),
           settings: const RouteSettings(name: Routes.HomeRoute),
+          transitionsBuilder: (context, animation, secondaryAnimation, child) {
+            return FadeTransition(
+              opacity: animation,
+              child: child,
+            );
+          },
         );
       case Routes.AttendanceRoute:
-        return MaterialPageRoute<dynamic>(
-          builder: (_) => const AttendanceScreen(),
+        return PageRouteBuilder<dynamic>(
+          transitionDuration: const Duration(milliseconds: 100),
+          pageBuilder: (_, __, ___) => const AttendanceScreen(),
           settings: const RouteSettings(name: Routes.AttendanceRoute),
+          transitionsBuilder: (context, animation, secondaryAnimation, child) {
+            return FadeTransition(
+              opacity: animation,
+              child: child,
+            );
+          },
         );
       case Routes.TimetableRoute:
-        return MaterialPageRoute<dynamic>(
-          builder: (_) => const TimetableScreen(),
+        return PageRouteBuilder<dynamic>(
+          transitionDuration: const Duration(milliseconds: 100),
+          pageBuilder: (_, __, ___) => const TimetableScreen(),
           settings: const RouteSettings(name: Routes.TimetableRoute),
+          transitionsBuilder: (context, animation, secondaryAnimation, child) {
+            return FadeTransition(
+              opacity: animation,
+              child: child,
+            );
+          },
         );
       case Routes.CalendarRoute:
-        return MaterialPageRoute<dynamic>(
-          builder: (_) => const CalendarScreen(),
+        return PageRouteBuilder<dynamic>(
+          transitionDuration: const Duration(milliseconds: 100),
+          pageBuilder: (_, __, ___) => const CalendarScreen(),
           settings: const RouteSettings(name: Routes.CalendarRoute),
+          transitionsBuilder: (context, animation, secondaryAnimation, child) {
+            return FadeTransition(
+              opacity: animation,
+              child: child,
+            );
+          },
         );
       case Routes.NewsRoute:
-        return MaterialPageRoute<dynamic>(
-          builder: (_) => const NewsScreen(),
+        return PageRouteBuilder<dynamic>(
+          transitionDuration: const Duration(milliseconds: 100),
+          pageBuilder: (_, __, ___) => const NewsScreen(),
           settings: const RouteSettings(name: Routes.NewsRoute),
+          transitionsBuilder: (context, animation, secondaryAnimation, child) {
+            return FadeTransition(
+              opacity: animation,
+              child: child,
+            );
+          },
         );
       case Routes.NewsDetailRoute:
         return MaterialPageRoute<dynamic>(
@@ -65,9 +100,16 @@ class AppRouter {
           settings: const RouteSettings(name: Routes.NewsDetailRoute),
         );
       case Routes.LinksRoute:
-        return MaterialPageRoute<dynamic>(
-          builder: (_) => const LinksScreen(),
+        return PageRouteBuilder<dynamic>(
+          transitionDuration: const Duration(milliseconds: 100),
+          pageBuilder: (_, __, ___) => const LinksScreen(),
           settings: const RouteSettings(name: Routes.NewsDetailRoute),
+          transitionsBuilder: (context, animation, secondaryAnimation, child) {
+            return FadeTransition(
+              opacity: animation,
+              child: child,
+            );
+          },
         );
 
       default:
@@ -76,8 +118,9 @@ class AppRouter {
   }
 
   static Route<dynamic> _errorRoute() {
-    return MaterialPageRoute<dynamic>(
-      builder: (_) => Scaffold(
+    return PageRouteBuilder<dynamic>(
+      transitionDuration: const Duration(milliseconds: 100),
+      pageBuilder: (_, __, ___) => Scaffold(
         appBar: AppBar(
           title: const Text('Unknown Route'),
         ),

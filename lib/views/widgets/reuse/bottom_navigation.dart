@@ -9,7 +9,7 @@ final LIST_OF_ITEM = [
     "icon": Icons.home_rounded,
     "title": "ホーム",
     "onTap": () {
-      AppRouter.popUntilRoot();
+      AppRouter.pushNamed(Routes.HomeRoute);
     },
   },
   {
@@ -42,10 +42,8 @@ final LIST_OF_ITEM = [
   }
 ];
 
-Widget bottomNavigation(BuildContext context) {
+Widget bottomNavigation(BuildContext context, {required int selectedIndex}) {
   Size size = MediaQuery.of(context).size;
-
-  int currentIndex = 0;
 
   return Container(
     margin: const EdgeInsets.all(20),
@@ -81,8 +79,8 @@ Widget bottomNavigation(BuildContext context) {
                 width: 42,
                 duration: const Duration(milliseconds: 1500),
                 curve: Curves.fastLinearToSlowEaseIn,
-                margin: EdgeInsets.only(bottom: index == currentIndex ? 0 : 8),
-                height: index == currentIndex ? 8 : 0,
+                margin: EdgeInsets.only(bottom: index == selectedIndex ? 0 : 8),
+                height: index == selectedIndex ? 8 : 0,
                 decoration: const BoxDecoration(
                   color: Colors.blueAccent,
                   borderRadius: BorderRadius.vertical(
@@ -94,13 +92,13 @@ Widget bottomNavigation(BuildContext context) {
                 LIST_OF_ITEM[index]["icon"] as IconData,
                 size: 32,
                 color:
-                    index == currentIndex ? Colors.blueAccent : Colors.black45,
+                    index == selectedIndex ? Colors.blueAccent : Colors.black45,
               ),
               Text(
                 LIST_OF_ITEM[index]["title"] as String,
                 style: TextStyle(
                   fontSize: 11,
-                  color: index == currentIndex
+                  color: index == selectedIndex
                       ? Colors.blueAccent
                       : Colors.black38,
                   fontWeight: FontWeight.w600,

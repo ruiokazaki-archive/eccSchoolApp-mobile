@@ -14,6 +14,7 @@ class TimetableScreen extends HookConsumerWidget {
     final timetableTypeState = useState(TimetableTypeConstants.LectureScreen);
 
     return layout(
+      selectedBottomNavigationIndex: 1,
       pageTitle: '時間割',
       context: context,
       body: Stack(

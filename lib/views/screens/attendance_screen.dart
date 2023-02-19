@@ -15,6 +15,7 @@ class AttendanceScreen extends HookConsumerWidget {
     final asyncValue = ref.watch(attendancesNotifierProvider);
 
     return layout(
+      selectedBottomNavigationIndex: 2,
       pageTitle: '出席率',
       context: context,
       body: SingleChildScrollView(

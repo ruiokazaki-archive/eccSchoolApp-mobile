@@ -4,6 +4,8 @@ import 'package:flutter/material.dart';
 
 Scaffold layout({
   String? pageTitle,
+  bool hideBottomNavigationBar = false,
+  int selectedBottomNavigationIndex = 0,
   required Widget body,
   required BuildContext context,
 }) {
@@ -13,6 +15,11 @@ Scaffold layout({
     key: key,
     appBar: appBar(title: pageTitle, context: context),
     body: body,
-    bottomNavigationBar: bottomNavigation(context),
+    bottomNavigationBar: hideBottomNavigationBar
+        ? null
+        : bottomNavigation(
+            context,
+            selectedIndex: selectedBottomNavigationIndex,
+          ),
   );
 }

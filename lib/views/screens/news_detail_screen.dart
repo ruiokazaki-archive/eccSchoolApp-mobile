@@ -20,6 +20,7 @@ class NewsDetailScreen extends HookConsumerWidget {
     ref.read(newsDetailNotifierProvider.notifier).getNewsDetail(newsId);
 
     return layout(
+      hideBottomNavigationBar: true,
       context: context,
       body: SingleChildScrollView(
         child: Padding(
