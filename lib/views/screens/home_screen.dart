@@ -1,5 +1,7 @@
+import 'package:ecc_school_app_mobile/constants/tab_names.dart';
 import 'package:ecc_school_app_mobile/helpers/utils/open_url.dart';
 import 'package:ecc_school_app_mobile/providers/auth_provider.dart';
+import 'package:ecc_school_app_mobile/providers/tab_index_provider.dart';
 import 'package:ecc_school_app_mobile/routes/app_router.dart';
 import 'package:ecc_school_app_mobile/routes/routes.dart';
 import 'package:ecc_school_app_mobile/views/screens/introduction_screen.dart';
@@ -35,28 +37,36 @@ class HomeScreen extends ConsumerWidget {
                   icon: Icons.schedule,
                   label: "時間割",
                   color: Colors.red.withOpacity(0.8),
-                  onTapped: () => AppRouter.pushNamed(Routes.TimetableRoute),
+                  onTapped: () => ref
+                      .read(tabIndexNotifierProvider.notifier)
+                      .changeTabIndex(TabNames.TimetableScreen),
                   context: context,
                 ),
                 wrapItem(
                   icon: Icons.percent,
                   label: "出席率",
                   color: Colors.green.withOpacity(0.8),
-                  onTapped: () => AppRouter.pushNamed(Routes.AttendanceRoute),
+                  onTapped: () => ref
+                      .read(tabIndexNotifierProvider.notifier)
+                      .changeTabIndex(TabNames.AttendanceScreen),
                   context: context,
                 ),
                 wrapItem(
                   icon: Icons.calendar_month,
                   label: "カレンダー",
                   color: Colors.blue.withOpacity(0.8),
-                  onTapped: () => AppRouter.pushNamed(Routes.CalendarRoute),
+                  onTapped: () => ref
+                      .read(tabIndexNotifierProvider.notifier)
+                      .changeTabIndex(TabNames.CalendarScreen),
                   context: context,
                 ),
                 wrapItem(
                   icon: Icons.notifications,
                   label: "お知らせ",
                   color: Colors.orange.withOpacity(0.8),
-                  onTapped: () => AppRouter.pushNamed(Routes.NewsRoute),
+                  onTapped: () => ref
+                      .read(tabIndexNotifierProvider.notifier)
+                      .changeTabIndex(TabNames.NewsScreen),
                   context: context,
                 ),
                 wrapItem(

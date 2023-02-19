@@ -5,6 +5,7 @@ import 'package:flutter/material.dart';
 class Routes {
   const Routes._();
 
+  static const String BaseRoute = "/base";
   static const String HomeRoute = "/";
   static const String AttendanceRoute = "/attendance";
   static const String TimetableRoute = "/timetable";

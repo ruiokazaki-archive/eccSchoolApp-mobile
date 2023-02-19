@@ -1,5 +1,4 @@
 import 'package:ecc_school_app_mobile/views/widgets/reuse/app_bar.dart';
-import 'package:ecc_school_app_mobile/views/widgets/reuse/bottom_navigation.dart';
 import 'package:flutter/material.dart';
 
 Scaffold layout({
@@ -13,6 +12,5 @@ Scaffold layout({
     key: key,
     appBar: appBar(title: pageTitle, context: context),
     body: body,
-    bottomNavigationBar: bottomNavigation(context),
   );
 }

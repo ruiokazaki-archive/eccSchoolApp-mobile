@@ -1,4 +1,5 @@
 import 'package:ecc_school_app_mobile/views/screens/attendance_screen.dart';
+import 'package:ecc_school_app_mobile/views/screens/base_screen.dart';
 import 'package:ecc_school_app_mobile/views/screens/calendar_screen.dart';
 import 'package:ecc_school_app_mobile/views/screens/home_screen.dart';
 import 'package:ecc_school_app_mobile/views/screens/introduction_screen.dart';
@@ -17,7 +18,7 @@ class AppRouter {
   static final GlobalKey<NavigatorState> navigatorKey =
       GlobalKey<NavigatorState>();
 
-  static const String initialRoute = Routes.HomeRoute;
+  static const String initialRoute = Routes.BaseRoute;
 
   static Route<dynamic>? generateRoute(RouteSettings settings) {
     switch (settings.name) {
@@ -32,6 +33,11 @@ class AppRouter {
           settings: const RouteSettings(name: Routes.SignInRoute),
         );
 
+      case Routes.BaseRoute:
+        return MaterialPageRoute<dynamic>(
+          builder: (_) => BaseScreen(),
+          settings: const RouteSettings(name: Routes.BaseRoute),
+        );
       case Routes.HomeRoute:
         return MaterialPageRoute<dynamic>(
           builder: (_) => const HomeScreen(),
