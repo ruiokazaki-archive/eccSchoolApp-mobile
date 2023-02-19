@@ -79,6 +79,15 @@ class HomeScreen extends ConsumerWidget {
                   context: context,
                 ),
                 wrapItem(
+                  icon: Icons.star_border_rounded,
+                  label: "各種リンク",
+                  color: Colors.pink.withOpacity(0.8),
+                  onTapped: () {
+                    AppRouter.pushNamed(Routes.LinksRoute);
+                  },
+                  context: context,
+                ),
+                wrapItem(
                   icon: Icons.logout,
                   label: "ログアウト",
                   color: Colors.teal.withOpacity(0.8),

@@ -2,6 +2,7 @@ import 'package:ecc_school_app_mobile/views/screens/attendance_screen.dart';
 import 'package:ecc_school_app_mobile/views/screens/calendar_screen.dart';
 import 'package:ecc_school_app_mobile/views/screens/home_screen.dart';
 import 'package:ecc_school_app_mobile/views/screens/introduction_screen.dart';
+import 'package:ecc_school_app_mobile/views/screens/links.dart';
 import 'package:ecc_school_app_mobile/views/screens/news_detail_screen.dart';
 import 'package:ecc_school_app_mobile/views/screens/news_screen.dart';
 import 'package:ecc_school_app_mobile/views/screens/sign_in_screen.dart';
@@ -61,6 +62,11 @@ class AppRouter {
         return MaterialPageRoute<dynamic>(
           builder: (_) =>
               NewsDetailScreen(newsId: settings.arguments as String),
+          settings: const RouteSettings(name: Routes.NewsDetailRoute),
+        );
+      case Routes.LinksRoute:
+        return MaterialPageRoute<dynamic>(
+          builder: (_) => const LinksScreen(),
           settings: const RouteSettings(name: Routes.NewsDetailRoute),
         );
 
