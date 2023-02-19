@@ -11,6 +11,7 @@ class Routes {
   static const String CalendarRoute = "/calendar";
   static const String NewsRoute = "/news";
   static const String NewsDetailRoute = "/news-detail";
+  static const String LinksRoute = "/links";
 
   static const String IntroductionRoute = "/introduction";
   static const String SignInRoute = "/sign-in";
