@@ -107,18 +107,17 @@ class SignInScreen extends HookConsumerWidget {
                   child: Column(
                     children: const <Widget>[
                       SizedBox(
-                        height: 40,
+                        height: 44,
                       ),
-                      Icon(
-                        Icons.logo_dev,
-                        color: Colors.white,
-                        size: 60,
+                      Image(
+                        image: AssetImage("assets/app-icon/white-base.png"),
+                        height: 72,
                       ),
                       SizedBox(
-                        height: 10,
+                        height: 12,
                       ),
                       Text(
-                        "app name?",
+                        "ECC学生アプリ",
                         style: TextStyle(
                           color: Colors.white,
                           fontWeight: FontWeight.w700,

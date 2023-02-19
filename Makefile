@@ -14,6 +14,9 @@ get:
 gen:
 	fvm flutter packages pub run build_runner build --delete-conflicting-outputs
 
+gen-icons:
+	fvm flutter pub run flutter_launcher_icons:main
+
 watch:
 	fvm flutter packages pub run build_runner watch --delete-conflicting-outputs
 
@@ -22,3 +25,4 @@ run:
 
 clean:
 	fvm flutter clean
+
