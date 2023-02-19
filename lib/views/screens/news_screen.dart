@@ -13,6 +13,7 @@ class NewsScreen extends HookConsumerWidget {
     final asyncValue = ref.watch(newsNotifierProvider);
 
     return layout(
+      selectedBottomNavigationIndex: 3,
       pageTitle: 'お知らせ',
       context: context,
       body: asyncValueLayout(

@@ -20,6 +20,7 @@ class HomeScreen extends ConsumerWidget {
     }
 
     return layout(
+      selectedBottomNavigationIndex: 0,
       pageTitle: 'Home',
       context: context,
       body: SizedBox(

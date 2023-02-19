@@ -9,6 +9,7 @@ class LinksScreen extends HookConsumerWidget {
   @override
   Widget build(BuildContext context, WidgetRef ref) {
     return layout(
+      selectedBottomNavigationIndex: -1,
       pageTitle: '各種リンク',
       context: context,
       body: ListView(
