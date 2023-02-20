@@ -26,3 +26,11 @@ run:
 clean:
 	fvm flutter clean
 
+build-ios:
+	fvm flutter build ios
+
+devices:
+	fvm flutter devices
+
+install:
+	flutter install -d
